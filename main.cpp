@@ -5,11 +5,13 @@
 #include "programa.h"
 #include "peliculas.h"
 #include "lista.h"
-#include "nodo.h"
+
 
 typedef Pelicula* Dato;
 
+using namespace std;
 
+const string archivo = "peliculas.txt";
 
 
 
@@ -22,7 +24,7 @@ int main (int argc, char *argv[])
     Programa programaPrincipal(archivo);
     programaPrincipal.ejecutarProgramaPrincipal();
 
-    Lista<Dato> lista;  // lista template
+    
 /*
     Pelicula* peliculasVistas;
     Pelicula* peliculasNoVistas ;
