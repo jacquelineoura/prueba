@@ -7,29 +7,42 @@
 #include "lista.h"
 
 
-typedef Pelicula* Dato;
+//typedef Pelicula* Dato;
 
 using namespace std;
 
-const string archivo = "peliculas.txt";
+const string peliculaVacia = "peliculaVacia.txt";
+//const string archivo2 = "peliculasNoVistas.txt"; 
+const MSJPARAMETROSINCORRECTOS= "cantidad de parametros incorrectos" ;
 
 
 
 int main (int argc, char *argv[])
 {
+    string archivoPelisNoVistas, archivoPelisVistas ; 
+    
+    switch(argc){
+    
+    		case 1: cout << "No hay ningun Archivo de peliculas vistas o no vistas"<< endl; 
+    			break;
+    		
+    		case 2: archivoPelisNoVistas= argv[1];
+    			archivoPelisVistas= peliculaVacia;
+    			
+    			 break;
+    		case 3:  archivoPelisVistas = argv[1];  
+        		 archivoPelisNoVistas= argv[2]; 
+        		 break;
+        	default: cout << MSJPARAMETROSINCORRECTOS << endl;	 
+    		
+    }
+    
+   
 
-   //hacer lectura de archivos
-
-
-    Programa programaPrincipal(archivo);
+    Programa programaPrincipal (archivoPelisVistas, archivoPelisNoVistas);
     programaPrincipal.ejecutarProgramaPrincipal();
 
     
-/*
-    Pelicula* peliculasVistas;
-    Pelicula* peliculasNoVistas ;
-    Pelicula* peliculasRecomendadas;
 
-   */
     return 0;
 }

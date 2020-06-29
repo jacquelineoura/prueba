@@ -14,14 +14,17 @@ class Programa
 private:
 
 	string nombreArchivo;
-	Lista<Dato> listaPeliculas;
+	Lista<string> peliculasVistas;
+	Lista<string> peliculasNoVistas;
+	Lista<string> recomendados; 
 	
 public:	
-	Programa(string nombreDelArchivo);
+	Programa(string archivoPelisVistas, string archivoPelisNoVistas) ;
 	~Programa();
 	//mas funciones	
 	void ejecutarProgramaPrincipal();
-	void leerArchivo();
+	void leerArchivo(); 
+	void ejecutarOpcion(); //menu
 }
 
 
@@ -33,5 +36,5 @@ void Programa::leerArchivo(){
 void Programa::ejecutarProgramaPrincipal()
 {
 	leerArchivo();
-	//ejecutarOpcion();
+	ejecutarOpcion();
 }
