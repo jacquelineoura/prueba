@@ -9,6 +9,7 @@
 
 //typedef Pelicula* Dato;
 //me gusta la milanesa.
+//me gusta la milnesa 2.0
 using namespace std;
 
 const string peliculaVacia = "peliculaVacia.txt";
