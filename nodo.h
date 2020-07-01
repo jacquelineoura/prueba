@@ -1,6 +1,8 @@
 #ifndef NODO_H_INCLUDED
 #define NODO_H_INCLUDED
+#include <iostream>
 
+using namespace std;
 
 template < typename Dato >
 class Nodo
@@ -23,12 +25,12 @@ class Nodo
 
         // Setea el dato (lo cambia)
         // PRE: el nodo tiene que estar creado
-        // d tiene que ser un dato válido
+        // d tiene que ser un dato vï¿½lido
         // POST: el nodo queda con el dato d
         void set_dato( Dato d ) ;
         // Setear el puntero al siguiente nodo
-        // PRE: nodo creado y ps válido
-        // POST: el puntero al siguiente apuntará a ps
+        // PRE: nodo creado y ps vï¿½lido
+        // POST: el puntero al siguiente apuntarï¿½ a ps
 
 
         void set_sig ( Nodo* ps ) ;
@@ -41,15 +43,18 @@ class Nodo
         // Obtener el puntero al nodo siguiente
         // PRE: nodo creado
         // POST: Devuelve el puntero al siguiente nodo
-        // si es el último devuelve NULL
+        // si es el ï¿½ltimo devuelve NULL
 
 
         Nodo* get_sig() ;
-        // ¿Hay un siguiente?
+        // ï¿½Hay un siguiente?
         // PRE: nodo creado
         // POST: V si tiene sig. F sino
 
         bool tiene_sig() ;
+
+
+
 };
 
 
@@ -102,4 +107,7 @@ bool Nodo < Dato > :: tiene_sig()
 {
     return (psig != 0) ;
 }
+
+
+
 #endif // NODO_H_INCLUDED

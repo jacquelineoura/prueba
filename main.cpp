@@ -2,25 +2,21 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include "programa.h"
-#include "peliculas.h"
+
 #include "lista.h"
+#include "nodo.h"
+#include "LeerArchivo.h"
+#include "Peliculas.h"
+#include "Programa.h"
 
-
-//typedef Pelicula* Dato;
-//me gusta la milanesa.
-//me gusta la milnesa 2.0
 using namespace std;
 
-const string peliculaVacia = "peliculaVacia.txt";
-//const string archivo2 = "peliculasNoVistas.txt";
-const MSJPARAMETROSINCORRECTOS= "cantidad de parametros incorrectos" ;
+const string peliculaVacia = "vacia";
 
-
-// .ejecutable vistas.txt
 int main (int argc, char *argv[])
 {
-    string archivoPelisNoVistas, archivoPelisVistas ;
+    Programa programa;
+    string vistas, novistas;
 
     //poner en funcion
     switch(argc){
@@ -28,22 +24,22 @@ int main (int argc, char *argv[])
     		case 1: cout << "No hay ningun Archivo de peliculas vistas o no vistas"<< endl;
     			break;
 
-    		case 2: archivoPelisNoVistas= argv[1];
-    			archivoPelisVistas= peliculaVacia;
-
-    			 break;
-    		case 3:  archivoPelisVistas = argv[1];
-        		 archivoPelisNoVistas= argv[2];
-        		 break;
-        	default: cout << MSJPARAMETROSINCORRECTOS << endl;
-
+    		case 2: {
+                novistas= argv[1];
+                vistas= peliculaVacia;
+                programa.asignar_archivo_novistas(vistas);       //guardo en los atributos de la clase programa los nombres de los archivos recibidos.
+                programa.asignar_archivo_vistas(peliculaVacia);
+    		}  break;
+    		case 3: {
+    		    vistas = argv[1];
+                novistas= argv[2];
+                programa.asignar_archivo_vistas(vistas);
+                programa.asignar_archivo_novistas(novistas);
+    		}  break;
+        	default: cout << "Cantidad de parametros incorrectos"<< endl;
     }
 
-
-
-    Programa programaPrincipal (archivoPelisVistas, archivoPelisNoVistas);
-    programaPrincipal.ejecutarProgramaPrincipal();
-
+   programa.programa_principal();
 
 
     return 0;
