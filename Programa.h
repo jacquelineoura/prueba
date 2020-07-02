@@ -2,15 +2,17 @@
 // Created by alex on 30/6/20.
 //
 
-#ifndef TP4A_PROGRAMA_H
-#define TP4A_PROGRAMA_H
+#ifndef PROGRAMA_H
+#define PROGRAMA_H
 
 #include "lista.h"
 #include "nodo.h"
 
+//LOS NOMBRES D LAS LIBRERIAS DEBERIAN ESTAR TODO EN MINUSCULA BY ANDRES
 #include "LeerArchivo.h"
 #include "Peliculas.h"
 
+const int SALIR = 0;
 
 class Programa {
 
@@ -36,7 +38,7 @@ public:
     //Descripcion: El "Falso main" encargado de ejecutar todo el programa
     //PRE:
     //Post:
-    void programa_principal();
+   // void programa_principal();     // COPIASTE MAL DEL MAIN , PROGRAMAPRINCIPAL ES EL OBJETO DE LA CLASE PROGRAMA NO METODO
 
     //----------Setters y Getters-------
 

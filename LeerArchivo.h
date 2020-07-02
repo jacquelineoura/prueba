@@ -1,17 +1,54 @@
-//
-// Created by alex on 30/6/20.
-//
-
 #ifndef TP4A_LEERARCHIVO_H
 #define TP4A_LEERARCHIVO_H
 
 
-//Pensar como va a ser esta implementacion. Pueden hacer lo que se les recontra re cante. El objetivo de esta clase es
-//que al dejar de usarla las listas de vistas y no vistas esten bien formados.
+typedef Peliculas* Dato;
+
 class LeerArchivo {
 
-    //HACER LA IMPLEMENTACION
+    private:
+        ifstream archivo;
+        bool archivo_abierto;
+
+    public:
+
+        // PRE: ruta es un string valido
+        // POST:
+        Leer_archivo(string ruta);
+
+        // PRE: El archivo se encontraba abierto
+        // POST: Cierra el archivo
+        ~Leer_archivo();
+
+        // PRE: El archivo fue abierto
+        // POST: Cierra el archivo
+        void cerrar_archivo() ;
+
+        // PRE: -
+        // POST: Si el archivo esta abierto devuelve true
+        bool estado_de_archivo() ;
+
+        // PRE: El archivo se encontraba abierto
+        // POST: si se llego al final del archivo devuelve true
+        bool final_archivo() ;
+
+        // PRE: ingresa string valido
+        // POST: Devuelve true si el archivo existe
+        bool existencia_de_archivo( string ruta ) ;
+
+        // PRE: La lista es válida
+        // POST: Carga los datos del archivo en la lista
+        void cargar_datos_lista( Lista<Dato> &lista ) ;
+
+        // PRE: El archivo fue abierto, el dato a leer debe ser un string
+        // POST: Lee un dato del archivo como string y lo devuelve
+        char leer_string() ;
+
+        // PRE: El archivo esta abierto, como el archivo esta bien formado, el dato a leer es un numero
+        // POST: Lee un dato del archivo como int y lo devuelve
+        int leer_int() ;
 };
 
 
-#endif //TP4A_LEERARCHIVO_H
+
+#endif
