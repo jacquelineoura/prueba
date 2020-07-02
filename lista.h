@@ -14,13 +14,13 @@ class Lista
     private :
         // Primer elemento de la lista
         Nodo < Dato >* primero ;
-        // Tama�o de la lista
+        // Tamanio de la lista
         unsigned tam ;
 
     public :
         // Constructor
         // PRE: Ninguna
-        // POST: construye una lista vac�a
+        // POST: construye una lista vacia
         // - primero apunta a nulo
         // - tam = 0
         Lista() ;
@@ -29,31 +29,31 @@ class Lista
         // POST: Libera todos los recursos de la lista
         ~Lista() ;
         // Agregar un elemento a la lista
-        // PRE: lista creada y d v�lido
+        // PRE: lista creada y d valido
         // POST: agrega un dato dentro de un nodo al principio
         // - modifica el primero
         // - tam se incrementa en 1
-        void insert ( Dato d ) ;
-        // Obtener el tama�o de la lista
+        void insertar ( Dato d ) ;
+        // Obtener el tamanio de la lista
         // PRE: Lista creada
-        // POST: devuelve el tama�o de la lista (cantidad de nodos)
-        unsigned get_tam () ;
-        // Obtener el dato que est� en la posici�n pos
-        // PRE: - lista creada y no vac�a
+        // POST: devuelve el tamanio de la lista (cantidad de nodos)
+        unsigned obtener_tam () ;
+        // Obtener el dato que esta en la posicion posicion
+        // PRE: - lista creada y no vacia
         // - 0 < pos <= tam
-        // POST: devuelve el dato que est� en la posici�n pos
+        // POST: devuelve el dato que esta en la posicion posicion
         // se toma 1 como el primero
-        Dato get_dato ( unsigned posicion ) ;
-        // �Lista vacia?
+        Dato obtener_dato ( unsigned posicion ) ;
+        // Lista vacia?
         // PRE: Lista creada
         // POST: True si es vacia, False sino
         bool lista_vacia () ;
-        // Borrado del nodo que est� en la posici�n pos
-        // PRE: - lista creada y no vac�a
+        // Borrado del nodo que esta en la posicion posicion
+        // PRE: - lista creada y no vacia
         // - 0 < pos <= tam
-        // POST: libera el nodo que est� en la posici�n pos
+        // POST: libera el nodo que esta en la posicion posicion
         // se toma 1 como el primero
-        void del_dato( unsigned posicion ) ;
+        void borrar_dato( unsigned posicion ) ;
 
 
 
@@ -78,7 +78,7 @@ Lista<Dato>::~Lista()
 {
     while (!this->lista_vacia())
     {
-    this->del_dato(1);
+    this->borrar_dato(1);
     }
 }
 
@@ -91,7 +91,7 @@ bool Lista < Dato > :: lista_vacia()
 
 
 template < typename Dato >
-void Lista < Dato > :: insert( Dato d )
+void Lista < Dato > :: insertar( Dato d )
 {
     Nodo<Dato>* nuevo = new Nodo<Dato>(d);
 
@@ -104,9 +104,9 @@ void Lista < Dato > :: insert( Dato d )
 }
 
 
-// Devuelve el dato que esta en la posici�n pos
+// Devuelve el dato que esta en la posicion pos
 template < typename Dato >
-Dato Lista < Dato > :: get_dato ( unsigned posicion )
+Dato Lista < Dato > :: obtener_dato ( unsigned posicion )
 {
     Nodo < Dato >* aux = primero ;
     if ( !lista_vacia() )
@@ -115,25 +115,25 @@ Dato Lista < Dato > :: get_dato ( unsigned posicion )
             aux = aux -> get_sig() ;
      }
 
-    return aux -> get_dato() ;
+    return aux -> obtener_dato() ;
     }
     return 0 ;
 }
 
 
 template < typename Dato >
-unsigned Lista<Dato> :: get_tam ()
+unsigned Lista<Dato> :: obtener_tam ()
 {
     return tam ;
 }
 
 
 template < typename Dato >
-void Lista<Dato>::del_dato(unsigned posicion)
+void Lista<Dato>::borrar_dato( unsigned posicion )
 {
        Nodo < Dato >* paux = primero ;
 
-    if (posicion == 1 || !(primero -> get_sig() ) )
+    if ( posicion == 1 || !( primero -> get_sig() ) )
     {
         primero = paux -> get_sig() ;
     }

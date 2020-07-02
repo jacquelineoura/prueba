@@ -25,12 +25,12 @@ class Nodo
 
         // Setea el dato (lo cambia)
         // PRE: el nodo tiene que estar creado
-        // d tiene que ser un dato v�lido
+        // d tiene que ser un dato valido
         // POST: el nodo queda con el dato d
         void set_dato( Dato d ) ;
         // Setear el puntero al siguiente nodo
-        // PRE: nodo creado y ps v�lido
-        // POST: el puntero al siguiente apuntar� a ps
+        // PRE: nodo creado y ps valido
+        // POST: el puntero al siguiente apuntara a ps
 
 
         void set_sig ( Nodo* ps ) ;
@@ -43,11 +43,11 @@ class Nodo
         // Obtener el puntero al nodo siguiente
         // PRE: nodo creado
         // POST: Devuelve el puntero al siguiente nodo
-        // si es el �ltimo devuelve NULL
+        // si es el ultimo devuelve NULL
 
 
         Nodo* get_sig() ;
-        // �Hay un siguiente?
+        // Hay un siguiente?
         // PRE: nodo creado
         // POST: V si tiene sig. F sino
 
