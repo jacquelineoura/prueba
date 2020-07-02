@@ -1,7 +1,3 @@
-//
-// Created by alex on 30/6/20.
-//
-
 #ifndef PROGRAMA_H
 #define PROGRAMA_H
 
@@ -12,8 +8,63 @@
 #include "LeerArchivo.h"
 #include "Peliculas.h"
 
-const int SALIR = 0;
 
+typedef Peliculas Dato;
+
+
+class Programa {
+
+private:
+
+    int opcion ;
+
+public:
+    //Descripcion: Constructor del programa sin parametros
+    //PRE:
+    //Post:  Inicializa el resto de los atributos
+    Programa();
+
+    //destructor
+    ~Programa();
+
+    //Descripcion:
+    //PRE:
+    //Post:
+    void mostrar_menu();
+
+    //Descripcion:
+    //PRE:
+    //Post:
+    void elegir_opcion();
+
+    //Descripcion:
+    //PRE:
+    //Post:
+    void abrir_menu_interno(Lista <Dato> &lista_vistas , Lista<Dato> &lista_no_vistas) ;
+
+    //Descripcion:
+    //PRE:
+    //Post:
+    int obtener_opcion() ;
+
+
+    //Descripcion: Muestra  lista completa
+    //PRE: Ingresa una lista bien formada
+    //Post: Muestra todos los elementos de dicha lista
+    void mostrar_lista_pelicula(Lista <Dato> &lista);   // MAS TARDE HAGO LA IMPLEMENTACION ->JACKIE
+
+
+    //Descripcion: Utiliza la lista de vistas y no vistas para formar recomendados
+    //PRE:
+    //Post:
+    void formar_recomendados();
+
+
+
+};
+
+
+/*
 class Programa {
 
 private:
@@ -83,6 +134,6 @@ public:
     //Post:
 
 };
-
+*/
 
 #endif //TP4A_PROGRAMA_H

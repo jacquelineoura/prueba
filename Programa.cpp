@@ -1,14 +1,72 @@
-//
-// Created by alex on 30/6/20.
-//
-
 #include "Programa.h"
 
+
+const MSJ_OPCION = "\n\tIngrese la opcion que desea: " ;
+const int SALIR = 0 ;
+const int PELIS_VISTAS = 1 ;
+const int PELIS_NO_VISTAS = 2 ;
+const int PELIS_RECOMENDADAS = 3 ;
+
+
 Programa::Programa() {
-    this->archivo_vistas= " ";
-    this->archivo_novistas=" ";
+
+}
+Programa::~Programa() {
+
 }
 
+
+int Programa:: obtener_opcion() {
+    return opcion;
+}
+
+void Programa:: mostrar_menu() {   //aca pegue el menu que habias hecho Alex
+        cout<<endl<<endl<<"Bienvenido al programa principal"<<endl;
+        cout<<"Decida que operacion quiere realizar: "<< endl << endl ;
+        cout<<"1. Mostrar lista peliculas vistas"<< endl;
+        cout<<"2. Mostrar lista peliculas no vistas"<< endl;
+        cout<<"3. Mostrar lista peliculas recomendadas"<< endl;
+        cout<<"0. Salir del programa"<< endl;
+}
+
+void Menu:: elegir_opcion() {
+    string opcion_menu;
+
+    cout << MSJ_OPCION;
+    cin >> opcion_menu;
+    cout <<endl;
+    opcion = stoi ( opcion_menu.c_str());    //falta validar opcion_menu
+}
+
+
+void Programa::  abrir_menu_interno(Lista<Peliculas> &lista_pelis_no_vistas, Lista<Peliculas> &lista_pelis_vistas){
+
+
+    switch (opcion) {
+
+            case PELIS_VISTAS :  mostrar_lista_pelicula(lista_pelis_vistas );
+                                 break;
+
+            case PELIS_NO_VISTAS:  mostrar_lista_pelicula(lista_pelis_no_vistas);
+                                   break;
+                                        // falta hacer recomendados
+            case PELIS_RECOMENDADAS:   formar_recomendados();
+                                       mostrar_lista_pelicula(lista_recomendadas);
+                                        break;
+
+            case SALIR: cout<<"Fin del programa"<<endl;
+                        break;
+}
+}
+
+
+void mostrar_lista_pelicula(Lista<Peliculas> &lista){
+}
+
+
+
+
+/*
 //El programa principal deberia empezar llamando la clase LeerArchivo para formar las listas con lo obtenido en el archivo.
 void Programa::programa_principal() {
 
@@ -76,4 +134,4 @@ string Programa::obtener_archivo_vistas() {
 string Programa::obtener_archivo_novistas() {
     return archivo_novistas;
 }
-
+*/

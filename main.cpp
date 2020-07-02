@@ -12,6 +12,7 @@
 using namespace std;
 
 const string peliculaVacia = "vacia";
+const string MSJ_ARCHIVOS_INEXISTENTES ="No hay ningun Archivo de peliculas vistas o no vistas" ;
 
 int main (int argc, char *argv[])
 {
@@ -21,7 +22,7 @@ int main (int argc, char *argv[])
     //poner en funcion
     switch(argc){
 
-    		case 1: cout << "No hay ningun Archivo de peliculas vistas o no vistas"<< endl;   //sale del programa
+    		case 1: cout << MSJ_ARCHIVOS_INEXISTENTES << endl;   //sale del programa
                     return 1;
 
 
@@ -53,7 +54,7 @@ int main (int argc, char *argv[])
    Lista<Dato> lista_pelis_no_vistas ;
    arch_pelis_no_vistas.cargar_datos_lista (lista_pelis_no_vistas) ;
 
-   // RESPECTO DEL PROGRAMA QUIZAS NO DEBERIAN EXISTIR ESOS ATRIBUTOS, AL MENOS NO NI LISTAS VISTAS NI NO VISTAS
+
 
 
 
