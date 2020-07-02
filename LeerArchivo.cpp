@@ -1,87 +1,103 @@
 #include "LeerArchivo.h"
+#include "Peliculas.h"
 
+#include "string.h"
 const string MSJ_APERTURA_ARCHIVO= " No se pudo abrir el archivo " ;
 const string MSJ_CARGA_CORRECTA= "\tDatos cargados correctamente" ;
-//typedef Peliculas Dato;
+typedef Peliculas* Dato;
 
-Leer_archivo:: Leer_archivo(string ruta) {
+LeerArchivo:: LeerArchivo(string ruta) {
 
 
     if (existencia_de_archivo(ruta)) {
         archivo.open( ruta, ios::out ) ;
         archivo_abierto = true ;
+        cout<<"archivo abierto"<<endl;
     }
     else {
         cout << endl ;
         cout << MSJ_APERTURA_ARCHIVO ;
         archivo_abierto = false;
+
     }
 }
 
-Leer_archivo:: ~Leer_archivo() {
+LeerArchivo:: ~LeerArchivo() {
     cerrar_archivo() ;
 }
 
-void Leer_archivo:: cerrar_archivo() {
+void LeerArchivo:: cerrar_archivo() {
     archivo.close() ;
     archivo_abierto = false ;
 }
 
-char Leer_archivo:: leer_string() {
+string LeerArchivo:: leer_string() {
     string s ;
     archivo >> s ;
     return s ;
 
 }
 
-int Leer_archivo:: leer_int() {
+int LeerArchivo:: leer_int() {
     int valor;
     archivo >> valor;
     return valor;
 }
 
-bool Leer_archivo:: final_archivo() {
+bool LeerArchivo:: final_archivo() {
     return archivo.eof() ;
 }
 
-bool Leer_archivo:: estado_de_archivo() {
+bool LeerArchivo:: estado_de_archivo() {
     return archivo_abierto ;
 }
 
-bool Leer_archivo:: existencia_de_archivo( string ruta ) {
+bool LeerArchivo:: existencia_de_archivo( string ruta ) {
     ifstream archivo( ruta );
     return archivo.good();
 }
 
-void Leer_archivo:: cargar_datos_lista ( Lista<Dato> &lista ) {
+void LeerArchivo:: cargar_datos_lista ( Lista<Dato> &lista ) {
 
-    if ( estado_de_archivo ) {
+      if (archivo_abierto) {
 
         string nombre_pelicula ;
         string genero ;
         string director ;
-        int puntaje ;
-        string actor ;
-        Lista<string> actores ;
+        string puntaje ;
+        string nombre_actor;
+        string espacio;
 
-        Dato dato; // Peliculas* dato
+        Lista<string> lista_actores ;
+
+        //Dato dato; // Peliculas dato
 
         while ( ! final_archivo()) {
 
-            nombre_pelicula = leer_string();
-            genero = leer_string();
-            puntaje = leer_int ;
-            director = leer_string();
-            //crea lista actores
-            while ( (actor = leer_string())! ="\n" ) {  //lee hasta que encuentre un newline, cuando la encontro vuelve a leer nombre de pelicula
-                    actores.insertar( actor ) ;
+            getline(archivo, nombre_pelicula);
+            getline(archivo, genero);
+            getline(archivo, puntaje);
+            getline(archivo, director);
+            getline(archivo, nombre_actor);
+            getline(archivo, espacio);
+
+            cout<<nombre_pelicula<<endl;
+            cout<<genero<<endl;
+            cout<<puntaje<<endl;
+            cout<<director<<endl;
+            cout<<nombre_actor<<endl;
+
+           /* while ( archivo>> nombre_actor )
+            {   cout<<nombre_actor<<endl;
+               // lista_actores.insertar(nombre_actor);
+            };
+*/
+          Peliculas* dato = new Peliculas( nombre_pelicula, genero, atoi( puntaje.c_str()), director ) ;  //saque lista de actores para hacer checkeos
+           lista.insertar(dato);
             }
 
-            dato = new Peliculas( nombre_pelicula, genero, puntaje, director, actores ) ;
-            lista.insertar( dato );
-
-        }
         cout << MSJ_CARGA_CORRECTA << endl <<endl;
+
 
     }
 }

@@ -1,24 +1,33 @@
-//
-// Created by alex on 30/6/20.
-//
-
 #include "Peliculas.h"
 
 Peliculas::Peliculas() {
-    nombre = " ";
-    genero = " ";
-    puntaje = 0;
-    director = " ";
+    this->nombre = " ";
+    this->genero = " ";
+    this->puntaje = 0;
+    this->director = " ";
+   // this->actores=0;
 }
+//Peliculas::Peliculas(string nombre_pelicula_out, string genero_out, int puntaje_out, string director_out, Lista<string> &actores_out) {
 
-Peliculas::Peliculas(string nombre_pelicula_out, string genero_out, int puntaje_out, string director_out, Lista<string> &actores_out) {
+Peliculas::Peliculas(string nombre_pelicula_out, string genero_out, int puntaje_out, string director_out) {
     this->nombre = nombre_pelicula_out;
     this->genero = genero_out;
     this->puntaje= puntaje_out;
     this->director=director_out;
-    this->actores = actores_out; //pasarlo por referencia. VERIFICAR
+   // this->actores = actores_out; //pasarlo por referencia. VERIFICAR
 }
 
+void Peliculas::mostrar_peliculas(){
+    cout << "nombre: "<<nombre <<endl ;
+    cout << "genero: "<<genero <<endl  ;
+    cout << "puntaje: "<<nombre <<endl  ;
+    cout << "director: "<<nombre <<endl  ;
+
+    for (int i = 1; i < actores.obtener_tam(); i++) {
+        cout << "actor: "<< actores.obtener_dato(i) <<endl ;
+    }
+}
+/*
 void Peliculas::asignar_nombre(string nombre_out) {
     nombre=nombre_out;
 }
@@ -50,5 +59,5 @@ void Peliculas::asignar_puntaje(int puntaje_out) {
 int Peliculas::obtener_puntaje() {
     return puntaje;
 }
-
+*/
 

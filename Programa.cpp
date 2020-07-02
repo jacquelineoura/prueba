@@ -1,7 +1,7 @@
 #include "Programa.h"
 
 
-const MSJ_OPCION = "\n\tIngrese la opcion que desea: " ;
+const string MSJ_OPCION = "\n\tIngrese la opcion que desea: " ;
 const int SALIR = 0 ;
 const int PELIS_VISTAS = 1 ;
 const int PELIS_NO_VISTAS = 2 ;
@@ -29,7 +29,7 @@ void Programa:: mostrar_menu() {   //aca pegue el menu que habias hecho Alex
         cout<<"0. Salir del programa"<< endl;
 }
 
-void Menu:: elegir_opcion() {
+void Programa:: elegir_opcion() {
     string opcion_menu;
 
     cout << MSJ_OPCION;
@@ -39,19 +39,19 @@ void Menu:: elegir_opcion() {
 }
 
 
-void Programa::  abrir_menu_interno(Lista<Peliculas> &lista_pelis_no_vistas, Lista<Peliculas> &lista_pelis_vistas){
+void Programa::  abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas, Lista<Peliculas*> &lista_vistas){
 
 
     switch (opcion) {
 
-            case PELIS_VISTAS :  mostrar_lista_pelicula(lista_pelis_vistas );
+            case PELIS_VISTAS :  mostrar_lista_pelicula(lista_vistas );
                                  break;
 
-            case PELIS_NO_VISTAS:  mostrar_lista_pelicula(lista_pelis_no_vistas);
+            case PELIS_NO_VISTAS:  mostrar_lista_pelicula(lista_no_vistas);
                                    break;
                                         // falta hacer recomendados
-            case PELIS_RECOMENDADAS:   formar_recomendados();
-                                       mostrar_lista_pelicula(lista_recomendadas);
+            case PELIS_RECOMENDADAS:   //formar_recomendados();
+                                       mostrar_lista_pelicula(lista_no_vistas);
                                         break;
 
             case SALIR: cout<<"Fin del programa"<<endl;
@@ -60,11 +60,25 @@ void Programa::  abrir_menu_interno(Lista<Peliculas> &lista_pelis_no_vistas, Lis
 }
 
 
-void mostrar_lista_pelicula(Lista<Peliculas> &lista){
+void Programa::mostrar_lista_pelicula(Lista<Peliculas*> &lista){
+
+    cout << "**** Peliculas ****" << endl;
+
+    if (!lista.lista_vacia()) {
+
+        for (int i = 0; i < lista.obtener_tam(); i++) {
+            cout << i + 1 << ". ";
+            lista.obtener_dato(i)->mostrar_peliculas();
+            cout << "\n";
+        }
+    }
+
+
 }
 
-
-
+/*void formar_recomendados(){
+ }
+*/
 
 /*
 //El programa principal deberia empezar llamando la clase LeerArchivo para formar las listas con lo obtenido en el archivo.

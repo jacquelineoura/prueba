@@ -37,7 +37,7 @@ class Lista
         // Obtener el tamanio de la lista
         // PRE: Lista creada
         // POST: devuelve el tamanio de la lista (cantidad de nodos)
-        unsigned obtener_tam () ;
+        int obtener_tam () ;
         // Obtener el dato que esta en la posicion posicion
         // PRE: - lista creada y no vacia
         // - 0 < pos <= tam
@@ -115,14 +115,14 @@ Dato Lista < Dato > :: obtener_dato ( unsigned posicion )
             aux = aux -> get_sig() ;
      }
 
-    return aux -> obtener_dato() ;
+    return aux -> get_dato() ;
     }
     return 0 ;
 }
 
 
 template < typename Dato >
-unsigned Lista<Dato> :: obtener_tam ()
+int Lista<Dato> :: obtener_tam()
 {
     return tam ;
 }

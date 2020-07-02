@@ -1,8 +1,12 @@
 #ifndef TP4A_LEERARCHIVO_H
 #define TP4A_LEERARCHIVO_H
+#include <fstream>
+#include "lista.h"
+#include "Peliculas.h"
 
 
 typedef Peliculas* Dato;
+
 
 class LeerArchivo {
 
@@ -14,11 +18,11 @@ class LeerArchivo {
 
         // PRE: ruta es un string valido
         // POST:
-        Leer_archivo(string ruta);
+        LeerArchivo(string ruta);
 
         // PRE: El archivo se encontraba abierto
         // POST: Cierra el archivo
-        ~Leer_archivo();
+        ~LeerArchivo();
 
         // PRE: El archivo fue abierto
         // POST: Cierra el archivo
@@ -42,7 +46,7 @@ class LeerArchivo {
 
         // PRE: El archivo fue abierto, el dato a leer debe ser un string
         // POST: Lee un dato del archivo como string y lo devuelve
-        char leer_string() ;
+        string leer_string() ;
 
         // PRE: El archivo esta abierto, como el archivo esta bien formado, el dato a leer es un numero
         // POST: Lee un dato del archivo como int y lo devuelve

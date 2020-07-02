@@ -1,24 +1,26 @@
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdlib>
 
-#include "lista.h"
-#include "nodo.h"
-#include "LeerArchivo.h"
-#include "Peliculas.h"
 #include "Programa.h"
+#include "LeerArchivo.h"
+
+
 
 using namespace std;
 
 const string peliculaVacia = "vacia";
 const string MSJ_ARCHIVOS_INEXISTENTES ="No hay ningun Archivo de peliculas vistas o no vistas" ;
 
+const string vistas="peliculasVistas.txt";
+const string novistas="peliculasNoVistas.txt";
+
+
+const int SALIR =0 ;
+
 int main (int argc, char *argv[])
 {
     Programa programa;
-    string vistas, novistas;
-
+    //string vistas, novistas;
+/*
     //poner en funcion
     switch(argc){
 
@@ -38,9 +40,7 @@ int main (int argc, char *argv[])
                     novistas= argv[2];
 
                     // hace las lecturas de pelis  vistas y crea carga lista
-                   LeerArchivo archivo_pelis_vistas ( vistas)  ;  // vistas o  arch_pelis_vistas
-                   Lista<Dato> lista_pelis_vistas ;
-                   arch_pelis_vistas.cargar_datos_lista (lista_pelis_vistas) ;
+
 
               //  programa.asignar_archivo_vistas(vistas);
              //   programa.asignar_archivo_novistas(novistas);
@@ -48,23 +48,27 @@ int main (int argc, char *argv[])
         	default: cout << "Cantidad de parametros incorrectos"<< endl;
                       return 1;  //sale del programa
     }
+*/
+    LeerArchivo archivo_pelis_vistas( vistas)  ;  // vistas o  arch_pelis_vistas
+    Lista<Dato> lista_pelis_vistas ;
+    archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas) ;
 
 
-   LeerArchivo archivo_pelis_no_vistas ( novistas)  ; // novistas o arch_pelis_no_vistas
+   LeerArchivo archivo_pelis_no_vistas( novistas)  ; // novistas o arch_pelis_no_vistas
    Lista<Dato> lista_pelis_no_vistas ;
-   arch_pelis_no_vistas.cargar_datos_lista (lista_pelis_no_vistas) ;
+   archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas) ;
 
 
 
 
 
-    if ( // CONDICION DE QUE SI ARCHIV PELIS EL ESTADO DEL ARCHIVO ES TRUE Y DEL NO VISTAS TMB ENTONCES (si ambos archivos estan abiertos ) {
+    if (archivo_pelis_no_vistas.estado_de_archivo() ) {
         Programa programa;
         do {
-            programa.mostrar_menu();  //muestra oopciones de menu
-            programa.elegir_opcion(); // elije y valida rango de oopciones del menu
+            programa.mostrar_menu();  //muestra opciones de menu
+            programa.elegir_opcion(); // elije y valida rango de opciones del menu
             programa.abrir_menu_interno(lista_pelis_no_vistas, lista_pelis_vistas);  //contiene los switch de opciones
-        } while (programa.obtener_opcion() != SALIR);   //salir 0
+        } while (programa.obtener_opcion() != SALIR);
     }
 
 
