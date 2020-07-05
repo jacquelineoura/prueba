@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/prueba.dir/LeerArchivo.cpp.o CMakeFiles/prueba.dir/main.cpp.o CMakeFiles/prueba.dir/Peliculas.cpp.o CMakeFiles/prueba.dir/Programa.cpp.o  -o prueba 
