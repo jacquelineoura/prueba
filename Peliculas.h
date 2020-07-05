@@ -35,53 +35,55 @@ class Peliculas {
 
         void mostrar_peliculas();
 
+
+    //--------------------SETTERS Y GETTES------------------
+    //Descripcion: devuelve el atributo nombre
+    //PRE:
+    //POST: devuelve el atributo nombre
+    // string obtener_nombre();
+
+
+    //Descripcion: asigna el nombre
+    //PRE: recibe un string
+    //POST: guarda en el atributo nombrePelicula el string recibido.
+    //  void asignar_nombre(string nombre_out);
+
+
+    //Descripcion: devuelve el atributo genero
+    //PRE:
+    //POST: devuelve el atributo nombre
+    //   string obtener_genero();
+
+
+    //Descripcion: asigna el genero
+    //PRE: recibe un string
+    //POST: guarda en el atributo genero el string recibido.
+    //   void asignar_genero(string genero_out);
+
+    //Descripcion: devuelve el atributo director
+    //PRE:
+    //POST: devuelve el atributo director
+    //  string obtener_director();
+
+
+    //Descripcion: asigna el director
+    //PRE: recibe un string
+    //POST: guarda en el atributo director el string recibido.
+    //   void asignar_director(string director_out);
+
+
+    //Descripcion: devuelve el atributo puntaje
+    //PRE:
+    //POST: devuelve el atributo puntaje
+    //   int obtener_puntaje();
+
+    //Descripcion: asigna el puntaje.
+    //PRE: puntaje mayor a 0.
+    //POST:guarda en el atributo puntaje el valor recibido.
+    //   void asignar_puntaje(int puntaje_out);
 };
 
-        //--------------------SETTERS Y GETTES------------------
-        //Descripcion: devuelve el atributo nombre
-        //PRE:
-        //POST: devuelve el atributo nombre
-      //  string obtener_nombre();
 
-
-        //Descripcion: asigna el nombre
-        //PRE: recibe un string
-        //POST: guarda en el atributo nombrePelicula el string recibido.
-      //  void asignar_nombre(string nombre_out);
-
-
-        //Descripcion: devuelve el atributo genero
-        //PRE:
-        //POST: devuelve el atributo nombre
-     //   string obtener_genero();
-
-
-        //Descripcion: asigna el genero
-        //PRE: recibe un string
-        //POST: guarda en el atributo genero el string recibido.
-     //   void asignar_genero(string genero_out);
-
-        //Descripcion: devuelve el atributo director
-        //PRE:
-        //POST: devuelve el atributo director
-      //  string obtener_director();
-
-
-        //Descripcion: asigna el director
-        //PRE: recibe un string
-        //POST: guarda en el atributo director el string recibido.
-     //   void asignar_director(string director_out);
-
-
-        //Descripcion: devuelve el atributo puntaje
-        //PRE:
-        //POST: devuelve el atributo puntaje
-     //   int obtener_puntaje();
-
-        //Descripcion: asigna el puntaje.
-        //PRE: puntaje mayor a 0.
-        //POST:guarda en el atributo puntaje el valor recibido.
-     //   void asignar_puntaje(int puntaje_out);
 
 
         //REVISAAR

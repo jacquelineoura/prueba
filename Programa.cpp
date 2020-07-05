@@ -41,7 +41,6 @@ void Programa:: elegir_opcion() {
 
 void Programa::  abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas, Lista<Peliculas*> &lista_vistas){
 
-
     switch (opcion) {
 
             case PELIS_VISTAS :  mostrar_lista_pelicula(lista_vistas );

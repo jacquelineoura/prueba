@@ -27,6 +27,7 @@ void Peliculas::mostrar_peliculas(){
         cout << "actor: "<< actores.obtener_dato(i) <<endl ;
     }
 }
+
 /*
 void Peliculas::asignar_nombre(string nombre_out) {
     nombre=nombre_out;
@@ -35,6 +36,7 @@ void Peliculas::asignar_nombre(string nombre_out) {
 string Peliculas::obtener_nombre() {
     return nombre;
 }
+
 
 void Peliculas::asignar_director(string director_out) {
     director=director_out;
