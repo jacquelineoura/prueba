@@ -10,8 +10,8 @@ using namespace std;
 const string peliculaVacia = "vacia";
 const string MSJ_ARCHIVOS_INEXISTENTES ="No hay ningun Archivo de peliculas vistas o no vistas" ;
 
-const string vistas="peliculasVistas.txt";
-const string novistas="peliculasNoVistas.txt";
+const string ruta_vistas="peliculasVistasprueba.txt";
+const string ruta_no_vistas="peliculasNoVistas.txt";
 
 
 const int SALIR =0 ;
@@ -19,7 +19,8 @@ const int SALIR =0 ;
 int main (int argc, char *argv[])
 {
     Programa programa;
-    //string vistas, novistas;
+   // string ruta_vistas, ruta_no_vistas;
+
 /*
     //poner en funcion
     switch(argc){
@@ -49,12 +50,13 @@ int main (int argc, char *argv[])
                       return 1;  //sale del programa
     }
 */
-    LeerArchivo archivo_pelis_vistas( vistas)  ;  // vistas o  arch_pelis_vistas
+
+    LeerArchivo archivo_pelis_vistas( ruta_vistas)  ;  // vistas o  arch_pelis_vistas
     Lista<Dato> lista_pelis_vistas ;
     archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas) ;
 
 
-   LeerArchivo archivo_pelis_no_vistas( novistas)  ; // novistas o arch_pelis_no_vistas
+   LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas)  ; // novistas o arch_pelis_no_vistas
    Lista<Dato> lista_pelis_no_vistas ;
    archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas) ;
 
@@ -65,8 +67,8 @@ int main (int argc, char *argv[])
     if (archivo_pelis_no_vistas.estado_de_archivo() ) {
         Programa programa;
         do {
-            programa.mostrar_menu();  //muestra opciones de menu
-            programa.elegir_opcion(); // elije y valida rango de opciones del menu
+            programa.mostrar_menu();
+            programa.elegir_opcion();
             programa.abrir_menu_interno(lista_pelis_no_vistas, lista_pelis_vistas);  //contiene los switch de opciones
         } while (programa.obtener_opcion() != SALIR);
     }
@@ -74,3 +76,7 @@ int main (int argc, char *argv[])
 
     return 0;
 }
+
+
+
+

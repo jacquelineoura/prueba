@@ -15,18 +15,17 @@ Programa::~Programa() {
 
 }
 
-
 int Programa:: obtener_opcion() {
     return opcion;
 }
 
 void Programa:: mostrar_menu() {   //aca pegue el menu que habias hecho Alex
-        cout<<endl<<endl<<"Bienvenido al programa principal"<<endl;
-        cout<<"Decida que operacion quiere realizar: "<< endl << endl ;
-        cout<<"1. Mostrar lista peliculas vistas"<< endl;
-        cout<<"2. Mostrar lista peliculas no vistas"<< endl;
-        cout<<"3. Mostrar lista peliculas recomendadas"<< endl;
-        cout<<"0. Salir del programa"<< endl;
+        cout<<endl<<endl<<endl<<"\t***************  MENU **************"<<endl<<endl;
+        cout<<"\tDecida que operacion quiere realizar: "<< endl << endl ;
+        cout<<"\t1. Mostrar lista peliculas vistas"<< endl;
+        cout<<"\t2. Mostrar lista peliculas no vistas"<< endl;
+        cout<<"\t3. Mostrar lista peliculas recomendadas"<< endl;
+        cout<<"\t0. Salir del programa"<< endl;
 }
 
 void Programa:: elegir_opcion() {
@@ -35,7 +34,7 @@ void Programa:: elegir_opcion() {
     cout << MSJ_OPCION;
     cin >> opcion_menu;
     cout <<endl;
-    opcion = stoi ( opcion_menu.c_str());    //falta validar opcion_menu
+    opcion = atoi ( opcion_menu.c_str());    //falta validar opcion_menu
 }
 
 
@@ -62,23 +61,23 @@ void Programa::  abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas, Lista<Pe
 
 void Programa::mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 
-    cout << "**** Peliculas ****" << endl;
+    cout <<endl<<endl<< "\t******** Peliculas ********  " << endl<<endl;
 
     if (!lista.lista_vacia()) {
 
-        for (int i = 0; i < lista.obtener_tam(); i++) {
-            cout << i + 1 << ". ";
+        for (int i = 1; i <= lista.obtener_tam(); i++) {
+            cout << i  << ". "<<endl;
             lista.obtener_dato(i)->mostrar_peliculas();
-            cout << "\n";
+            cout << endl<<endl;
         }
     }
-
-
 }
 
-/*void formar_recomendados(){
+void crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) {
+
+
+
  }
-*/
 
 /*
 //El programa principal deberia empezar llamando la clase LeerArchivo para formar las listas con lo obtenido en el archivo.

@@ -14,9 +14,9 @@ class Peliculas {
     private:
         string nombre;
         string genero;
-        string director;
         int puntaje;
-        Lista<string> actores;
+        string director;
+        Lista<string>* actores;
 
     public:
 
@@ -25,16 +25,19 @@ class Peliculas {
         //Post: Construye un objeto pelicula y le asigna a los atributos null.
         Peliculas();
 
-
+        ~Peliculas();
 
         //Descripcion: Constructor
         //PRE: -
         //Post: Construye un objeto pelicula y le asigna a los atributos los valores leidos.
-        //Peliculas(string nombre_pelicula_out ,string genero_out , int puntaje_out ,string director_out , Lista <string>& actores_out);
+     //   Peliculas(string nombre_pelicula_out ,string genero_out , int puntaje_out ,string director_out , Lista <string>& actores_out);
         Peliculas(string nombre_pelicula_out ,string genero_out , int puntaje_out ,string director_out);
 
         void mostrar_peliculas();
 
+        void asignar_actor(string nombre_actor);
+
+        void lista_recomendados();  //HACER
 };
 
         //--------------------SETTERS Y GETTES------------------

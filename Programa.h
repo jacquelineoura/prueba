@@ -57,7 +57,7 @@ public:
     //Descripcion: Utiliza la lista de vistas y no vistas para formar recomendados
     //PRE:
     //Post:
-  //  void formar_recomendados();
+   void crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) ;
 
 
 
