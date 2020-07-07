@@ -2,6 +2,8 @@
 
 
 const string MSJ_OPCION = "\n\tIngrese la opcion que desea: " ;
+const string MSJ_PELICULAS= "\t******** Peliculas ********  " ;
+const string MSJ_FIN_PROGRAMA= "Fin del programa" ;
 const int SALIR = 0 ;
 const int PELIS_VISTAS = 1 ;
 const int PELIS_NO_VISTAS = 2 ;
@@ -9,10 +11,9 @@ const int PELIS_RECOMENDADAS = 3 ;
 
 
 Programa::Programa() {
-
 }
 Programa::~Programa() {
-
+//FALTA
 }
 
 int Programa:: obtener_opcion() {
@@ -20,28 +21,27 @@ int Programa:: obtener_opcion() {
 }
 
 void Programa:: mostrar_menu() {   //aca pegue el menu que habias hecho Alex
-        cout<<endl<<endl<<endl<<"\t***************  MENU **************"<<endl<<endl;
-        cout<<"\tDecida que operacion quiere realizar: "<< endl << endl ;
-        cout<<"\t1. Mostrar lista peliculas vistas"<< endl;
-        cout<<"\t2. Mostrar lista peliculas no vistas"<< endl;
-        cout<<"\t3. Mostrar lista peliculas recomendadas"<< endl;
-        cout<<"\t0. Salir del programa"<< endl;
+        cout << endl << endl << endl ;
+        cout << "\t***************  MENU **************"<<endl << endl ;
+        cout << "\tDecida que operacion quiere realizar: " << endl << endl ;
+        cout << "\t1. Mostrar lista peliculas vistas" << endl ;
+        cout << "\t2. Mostrar lista peliculas no vistas" << endl ;
+        cout << "\t3. Mostrar lista peliculas recomendadas" << endl ;
+        cout << "\t0. Salir del programa" << endl ;
 }
 
 void Programa:: elegir_opcion() {
-    string opcion_menu;
-
-    cout << MSJ_OPCION;
-    cin >> opcion_menu;
-    cout <<endl;
-    opcion = atoi ( opcion_menu.c_str());    //falta validar opcion_menu
+    string opcion_menu ;
+    cout << MSJ_OPCION ;
+    cin >> opcion_menu ;
+    cout <<endl ;
+    opcion = atoi ( opcion_menu.c_str() ) ;    //falta validar opcion_menu  - FALTA
 }
 
 
-void Programa::  abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas, Lista<Peliculas*> &lista_vistas){
+void Programa:: abrir_menu_interno( Lista<Peliculas*> &lista_no_vistas , Lista<Peliculas*> &lista_vistas ){
 
-
-    switch (opcion) {
+    switch ( opcion ) {
 
             case PELIS_VISTAS :  mostrar_lista_pelicula(lista_vistas);
                                  break;
@@ -50,28 +50,30 @@ void Programa::  abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas, Lista<Pe
                                    break;
                                         // falta hacer recomendados
             case PELIS_RECOMENDADAS:   //formar_recomendados();
-                                       mostrar_lista_pelicula(lista_no_vistas);
+                                       mostrar_lista_pelicula(lista_no_vistas);   //ESTA MAL
                                         break;
 
-            case SALIR: cout<<"Fin del programa"<<endl;
+            case SALIR: cout << MSJ_FIN_PROGRAMA << endl ;
                         break;
+    }
 }
-}
 
 
-void Programa::mostrar_lista_pelicula(Lista<Peliculas*> &lista){
+void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 
-    cout <<endl<<endl<< "\t******** Peliculas ********  " << endl<<endl;
+    cout << endl << endl << MSJ_PELICULAS << endl << endl;
 
-    if (!lista.lista_vacia()) {
-
-        for (int i = 1; i <= lista.obtener_tam(); i++) {
-            cout << i  << ". "<<endl;
-            lista.obtener_dato(i)->mostrar_peliculas();
-            cout << endl<<endl;
+    if ( !lista.lista_vacia() ) {
+        for (int i = 1; i <= lista.obtener_tam(); i++ ) {
+            cout << i  << ". " << endl ;
+            lista.obtener_dato(i)->mostrar_peliculas() ;
+            cout << endl << endl ;
         }
     }
 }
+
+
+/*REVISAR ESTA MAL EL FORMATO, LAS CABECERAS*/
 
 Lista<Dato> crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) {
     string* generos = new string [lista_vistas -> obtener_tam()];
