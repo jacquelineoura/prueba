@@ -56,6 +56,7 @@ void Programa:: abrir_menu_interno( Lista<Peliculas*> &lista_no_vistas , Lista<P
 
                 if (esta_vistas)
                     formar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas);
+                    //probando
                  else
                      formar_recomendados(lista_no_vistas,lista_recomendadas);
 
@@ -87,14 +88,14 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
 
  //te dejo un ejemplo de como acceder a los datos. Despues implementa como quieras.
    if(lista_no_vistas.obtener_dato(3)->obtener_puntaje()>=7)
-       cout<<"Esta pelicula va a ir a recomendadas"<<endl;
+       cout<<"Esta pelicula va a ir a recomendadasss"<<endl;
 
 
 }
 
 //lo forma con no vistas unicamente
 void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado) {
-
+    //armar
 }
 
 
