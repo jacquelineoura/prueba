@@ -2,23 +2,24 @@
 #include "Peliculas.h"
 #include <sstream>
 #include "string.h"
-const string MSJ_APERTURA_ARCHIVO= " No se pudo abrir el archivo " ;
-const string MSJ_CARGA_CORRECTA= "\tDatos cargados correctamente" ;
+
+const string MSJ_ERROR_APERTURA = " No se pudo abrir el archivo " ;
+const string MSJ_CARGA_CORRECTA = "\tDatos cargados correctamente" ;
+const string MSJ_OK_APERTURA = "\tarchivo abierto" ;
+
 typedef Peliculas* Dato;
 
 LeerArchivo:: LeerArchivo(string ruta) {
 
-
     if (existencia_de_archivo(ruta)) {
         archivo.open( ruta, ios::out ) ;
         archivo_abierto = true ;
-        cout<<"\tarchivo abierto"<<endl;
+        cout << MSJ_OK_APERTURA << endl ;
     }
     else {
         cout << endl ;
-        cout << MSJ_APERTURA_ARCHIVO ;
-        archivo_abierto = false;
-
+        cout << MSJ_ERROR_APERTURA ;
+        archivo_abierto = false ;
     }
 }
 
@@ -35,13 +36,12 @@ string LeerArchivo:: leer_string() {
     string s ;
     archivo >> s ;
     return s ;
-
 }
 
 int LeerArchivo:: leer_int() {
-    int valor;
-    archivo >> valor;
-    return valor;
+    int valor ;
+    archivo >> valor ;
+    return valor ;
 }
 
 bool LeerArchivo:: final_archivo() {
@@ -53,8 +53,8 @@ bool LeerArchivo:: estado_de_archivo() {
 }
 
 bool LeerArchivo:: existencia_de_archivo( string ruta ) {
-    ifstream archivo( ruta );
-    return archivo.good();
+    ifstream archivo( ruta ) ;
+    return archivo.good() ;
 }
 
 void LeerArchivo:: cargar_datos_lista ( Lista<Dato> &lista ) {
@@ -87,13 +87,10 @@ void LeerArchivo:: cargar_datos_lista ( Lista<Dato> &lista ) {
               dato -> asignar_actor( *nombre_actor ) ;
             }
 
-            lista.insertar(dato);
-            getline(archivo, espacio);
-
+            lista.insertar( dato ) ;
+            getline( archivo, espacio ) ;
             }
 
         cout << MSJ_CARGA_CORRECTA << endl ;
-
-
     }
 }

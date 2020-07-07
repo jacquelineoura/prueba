@@ -1,6 +1,5 @@
 #ifndef PROGRAMA_H
 #define PROGRAMA_H
-
 #include "lista.h"
 #include "nodo.h"
 
@@ -8,60 +7,53 @@
 #include "LeerArchivo.h"
 #include "Peliculas.h"
 
-
-typedef Peliculas* Dato;
+typedef Peliculas* Dato ;
 
 
 class Programa {
 
-private:
+    private:
+        int opcion ;
 
-    int opcion ;
+    public:
+        //Descripcion: Constructor del programa sin parametros
+        //PRE: -
+        //Post:  -
+        Programa() ;
 
-public:
-    //Descripcion: Constructor del programa sin parametros
-    //PRE:
-    //Post:  Inicializa el resto de los atributos
-    Programa();
+        //destructor
+        ~Programa() ;
 
-    //destructor
-    ~Programa();
+        //Descripcion:
+        //PRE: -
+        //Post: Muestra las opciones del menu
+        void mostrar_menu() ;
 
-    //Descripcion:
-    //PRE:
-    //Post:
-    void mostrar_menu();
+        //Descripcion:
+        //PRE:
+        //Post: Se ingresa por teclado una opcion del menu
+        void elegir_opcion() ;
 
-    //Descripcion:
-    //PRE:
-    //Post:
-    void elegir_opcion();
+        //Descripcion:
+        //PRE:
+        //Post:
+        void abrir_menu_interno( Lista<Dato> &lista_no_vistas , Lista<Dato> &lista_vistas ) ;
 
-    //Descripcion:
-    //PRE:
-    //Post:
-    void abrir_menu_interno(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) ;
+        //Descripcion:
+        //PRE:
+        //Post:
+        int obtener_opcion() ;
 
-    //Descripcion:
-    //PRE:
-    //Post:
-    int obtener_opcion() ;
+        //Descripcion: Muestra  lista completa
+        //PRE: Ingresa una lista bien formada
+        //Post: Muestra todos los elementos de dicha lista
+        void mostrar_lista_pelicula( Lista <Dato> &lista );
 
-
-    //Descripcion: Muestra  lista completa
-    //PRE: Ingresa una lista bien formada
-    //Post: Muestra todos los elementos de dicha lista
-    void mostrar_lista_pelicula(Lista <Dato> &lista);   // MAS TARDE HAGO LA IMPLEMENTACION ->JACKIE
-
-
-    //Descripcion: Utiliza la lista de vistas y no vistas para formar recomendados
-    //PRE:
-    //Post:
-   void crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) ;
-
-
-
-};
+        //Descripcion: Utiliza la lista de vistas y no vistas para formar recomendados
+        //PRE:
+        //Post:
+        void crear_recomendados( Lista<Dato> &lista_no_vistas , Lista<Dato> &lista_vistas ) ;
+    };
 
 
 /*
