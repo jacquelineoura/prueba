@@ -24,24 +24,19 @@ int main (int argc, char *argv[])
 /*
     //poner en funcion
     switch(argc){
-
     		case 1: cout << MSJ_ARCHIVOS_INEXISTENTES << endl;   //sale del programa
                     return 1;
-
-
     		case 2: {
                      novistas= argv[1];
                      vistas= peliculaVacia;
                // programa.asignar_archivo_novistas(vistas);
               //  programa.asignar_archivo_vistas(peliculaVacia);
     		       }  break;
-
     		case 3: {
                     vistas = argv[1];
                     novistas= argv[2];
 
                     // hace las lecturas de pelis  vistas y crea carga lista
-
 
               //  programa.asignar_archivo_vistas(vistas);
              //   programa.asignar_archivo_novistas(novistas);
@@ -52,16 +47,13 @@ int main (int argc, char *argv[])
 */
 
     LeerArchivo archivo_pelis_vistas(ruta_vistas)  ;  // vistas o  arch_pelis_vistas
-    Lista<Dato> lista_pelis_vistas ;
+    Lista<Dato> lista_pelis_vistas;
     archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas) ;
 
 
    LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas)  ; // novistas o arch_pelis_no_vistas
    Lista<Dato> lista_pelis_no_vistas ;
    archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas) ;
-
-
-
 
 
     if (archivo_pelis_no_vistas.estado_de_archivo() ) {

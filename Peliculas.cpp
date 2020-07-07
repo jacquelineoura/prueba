@@ -39,7 +39,7 @@ void Peliculas::mostrar_peliculas(){
 }
 
 
-}/*
+}
 void Peliculas::asignar_nombre(string nombre_out) {
     nombre=nombre_out;
 }
@@ -71,5 +71,5 @@ void Peliculas::asignar_puntaje(int puntaje_out) {
 int Peliculas::obtener_puntaje() {
     return puntaje;
 }
-*/
+
 

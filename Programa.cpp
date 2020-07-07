@@ -30,7 +30,7 @@ void Programa:: mostrar_menu() {   //aca pegue el menu que habias hecho Alex
         cout << "\t0. Salir del programa" << endl ;
 }
 
-void Programa:: elegir_opcion() {
+void Programa:: elegir_opcion(){
     string opcion_menu ;
     cout << MSJ_OPCION ;
     cin >> opcion_menu ;
@@ -42,16 +42,26 @@ void Programa:: elegir_opcion() {
 void Programa:: abrir_menu_interno( Lista<Peliculas*> &lista_no_vistas , Lista<Peliculas*> &lista_vistas ){
 
     switch ( opcion ) {
+            case PELIS_VISTAS:  mostrar_lista_pelicula(lista_vistas);
+                break;
 
-            case PELIS_VISTAS :  mostrar_lista_pelicula(lista_vistas);
-                                 break;
+            case PELIS_NO_VISTAS: mostrar_lista_pelicula(lista_no_vistas);
+                break;
 
-            case PELIS_NO_VISTAS:  mostrar_lista_pelicula(lista_no_vistas);
-                                   break;
-                                        // falta hacer recomendados
-            case PELIS_RECOMENDADAS:   //formar_recomendados();
-                                       mostrar_lista_pelicula(lista_no_vistas);   //ESTA MAL
-                                        break;
+            case PELIS_RECOMENDADAS:{
+                Lista<Dato> lista_recomendadas;
+                bool esta_vistas;
+
+                esta_vistas=true; //por ahora lo dejo asi. Despues hay que recibir del main este parametro. Aca deberia recibir si se abrio o no
+
+                if (esta_vistas)
+                    formar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas);
+                 else
+                     formar_recomendados(lista_no_vistas,lista_recomendadas);
+
+                mostrar_lista_pelicula(lista_recomendadas);
+            }
+            break;
 
             case SALIR: cout << MSJ_FIN_PROGRAMA << endl ;
                         break;
@@ -60,21 +70,36 @@ void Programa:: abrir_menu_interno( Lista<Peliculas*> &lista_no_vistas , Lista<P
 
 
 void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
-
     cout << endl << endl << MSJ_PELICULAS << endl << endl;
 
     if ( !lista.lista_vacia() ) {
         for (int i = 1; i <= lista.obtener_tam(); i++ ) {
             cout << i  << ". " << endl ;
-            lista.obtener_dato(i)->mostrar_peliculas() ;
+            lista.obtener_dato(i)->mostrar_peliculas();
             cout << endl << endl ;
         }
     }
 }
 
 
-/*REVISAR ESTA MAL EL FORMATO, LAS CABECERAS*/
+//Lo forma con vistas y no vistas
+void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado) {
 
+ //te dejo un ejemplo de como acceder a los datos. Despues implementa como quieras.
+   if(lista_no_vistas.obtener_dato(3)->obtener_puntaje()>=7)
+       cout<<"Esta pelicula va a ir a recomendadas"<<endl;
+
+
+}
+
+//lo forma con no vistas unicamente
+void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado) {
+
+}
+
+
+/*REVISAR ESTA MAL EL FORMATO, LAS CABECERAS*/
+/*
 Lista<Dato> crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) {
     string* generos = new string [lista_vistas -> obtener_tam()];
     Lista<Dato> lista_participantes;
@@ -131,6 +156,7 @@ Lista<Dato> crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_
         }
     return lista_recomendadas_exepcion;
  }
+*/
 
 /*
 //El programa principal deberia empezar llamando la clase LeerArchivo para formar las listas con lo obtenido en el archivo.
