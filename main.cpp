@@ -4,7 +4,6 @@
 #include "LeerArchivo.h"
 
 
-
 using namespace std;
 
 const string peliculaVacia = "vacia";
@@ -59,8 +58,6 @@ int main (int argc, char *argv[])
    LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas)  ; // novistas o arch_pelis_no_vistas
    Lista<Dato> lista_pelis_no_vistas ;
    archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas) ;
-
-
 
 
 
