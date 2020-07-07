@@ -8,17 +8,17 @@
 using namespace std;
 
 const string peliculaVacia = "vacia";
-const string MSJ_ARCHIVOS_INEXISTENTES ="No hay ningun Archivo de peliculas vistas o no vistas" ;
+const string MSJ_ARCHIVOS_INEXISTENTES = "No hay ningun Archivo de peliculas vistas o no vistas";
 
-const string ruta_vistas="peliculasVistasprueba.txt";
-const string ruta_no_vistas="peliculasNoVistas.txt";
+const string ruta_vistas = "peliculasVistasprueba.txt";
+const string ruta_no_vistas = "peliculasNoVistas.txt";
 
 
-const int SALIR =0 ;
+const int SALIR = 0;
 
 int main (int argc, char *argv[])
 {
-    Programa programa;
+    Programa programa; // No esta de mas ?
    // string ruta_vistas, ruta_no_vistas;
 
 /*
@@ -51,7 +51,7 @@ int main (int argc, char *argv[])
     }
 */
 
-    LeerArchivo archivo_pelis_vistas( ruta_vistas)  ;  // vistas o  arch_pelis_vistas
+    LeerArchivo archivo_pelis_vistas(ruta_vistas)  ;  // vistas o  arch_pelis_vistas
     Lista<Dato> lista_pelis_vistas ;
     archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas) ;
 

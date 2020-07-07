@@ -56,7 +56,7 @@ class Peliculas {
         //Descripcion: devuelve el atributo genero
         //PRE:
         //POST: devuelve el atributo nombre
-     //   string obtener_genero();
+        string obtener_genero();
 
 
         //Descripcion: asigna el genero
@@ -67,7 +67,7 @@ class Peliculas {
         //Descripcion: devuelve el atributo director
         //PRE:
         //POST: devuelve el atributo director
-      //  string obtener_director();
+        string obtener_director();
 
 
         //Descripcion: asigna el director
@@ -79,7 +79,7 @@ class Peliculas {
         //Descripcion: devuelve el atributo puntaje
         //PRE:
         //POST: devuelve el atributo puntaje
-     //   int obtener_puntaje();
+        int obtener_puntaje();
 
         //Descripcion: asigna el puntaje.
         //PRE: puntaje mayor a 0.

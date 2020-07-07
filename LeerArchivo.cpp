@@ -61,10 +61,10 @@ void LeerArchivo:: cargar_datos_lista ( Lista<Dato> &lista ) {
 
       if (archivo_abierto) {
 
-        string nombre_pelicula ;
-        string genero ;
-        string director ;
-        string puntaje ;
+        string nombre_pelicula;
+        string genero;
+        string director;
+        string puntaje;
         string espacio;
         string linea_actores;
 
@@ -72,7 +72,7 @@ void LeerArchivo:: cargar_datos_lista ( Lista<Dato> &lista ) {
 
         while ( ! final_archivo()) {
 
-            string linea_actores;
+            string linea_actores; // No esta de mas ?
             getline(archivo, nombre_pelicula);
             getline(archivo, genero);
             getline(archivo, puntaje);
@@ -80,10 +80,10 @@ void LeerArchivo:: cargar_datos_lista ( Lista<Dato> &lista ) {
             getline(archivo, linea_actores);
 
             stringstream s(linea_actores);
-            string* nombre_actor=new string ;
+            string* nombre_actor = new string;
 
 
-            Peliculas* dato = new Peliculas( nombre_pelicula, genero, atoi( puntaje.c_str()), director) ;
+            Peliculas* dato = new Peliculas( nombre_pelicula, genero, atoi( puntaje.c_str()), director);
 
             while (s >> *nombre_actor){
               dato->asignar_actor(*nombre_actor);

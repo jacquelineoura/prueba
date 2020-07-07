@@ -14,12 +14,12 @@ Peliculas::Peliculas(string nombre_pelicula_out, string genero_out, int puntaje_
     this->genero = genero_out;
     this->puntaje= puntaje_out;
     this->director=director_out;
-    actores= new Lista<string>();
+    actores = new Lista<string>();
 }
 
 
 void Peliculas::asignar_actor(string nombre_actor){
-  actores->insertar(nombre_actor);
+  actores -> insertar(nombre_actor);
 }
 
 

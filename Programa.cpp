@@ -43,7 +43,7 @@ void Programa::  abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas, Lista<Pe
 
     switch (opcion) {
 
-            case PELIS_VISTAS :  mostrar_lista_pelicula(lista_vistas );
+            case PELIS_VISTAS :  mostrar_lista_pelicula(lista_vistas);
                                  break;
 
             case PELIS_NO_VISTAS:  mostrar_lista_pelicula(lista_no_vistas);
@@ -73,10 +73,61 @@ void Programa::mostrar_lista_pelicula(Lista<Peliculas*> &lista){
     }
 }
 
-void crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) {
+Lista<Dato> crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) {
+    string* generos = new string [lista_vistas -> obtener_tam()];
+    Lista<Dato> lista_participantes;
+    Lista<Dato> lista_recomendadas;
+    lectura_de_peliculas_vistas (lista_vistas, generos, lista_participantes);
+    recomendadas (lista_participantes, lista_recomendadas, generos);
+    return lista_recomendadas;
+ }
 
+ void recomendadas (Lista<Dato> &lista_participantes, Lista<Dato> &lista_recomendadas, &generos){
+    bool esta = false;
+    while (primero->tiene_sig()){ //no vistas
+        if (dato->obtener_puntaje() >= 7){
+            lista_recomendadas.insertar(dato);
+        }else{
+            for (int i = 0; i < lista_vistas -> obtener_tam(); i++){
+                if (generos[i] == dato->obtener_genero())
+                    esta = true;
+            }
+            if (esta){
+                    esta = false;
+                    while (actores->tiene_sig()){ //de la no vistas.
+                        while (primero->tiene_sig()){ // de la lista participantes.
+                            if (son la misma persona)
+                                esta = true;
+                        }
+                    if (esta)
+                        lista_recomendadas.insertar(dato);
+                    }
 
+            }
+        }
+        esta = false;
+    }
+ }
 
+ void lectura_de_peliculas_vistas (Lista<Dato> &lista_vistas, &generos, Lista<Dato> &participantes){
+    int contador = 0;
+    do{
+        generos[contador] = dato->obtener_genero();
+        listaparticipantes -> insertar(dato -> obtener_director());
+        while (actores->tiene_sig()){
+            listaparticipantes -> insertar(actores -> obtener_dato (unsigned posicion)); //falta posicion.
+        }
+        contador ++;
+    }while (primero->tiene_sig());
+ }
+
+ Lista<Dato> crear_recomendados_exepcion (Lista<Dato> &lista_no_vistas) {
+    Lista<Dato> lista_recomendadas_exepcion;
+    while (primero->tiene_sig()){ //no vistas
+        if (dato->obtener_puntaje() >= 7){
+            lista_recomendadas_exepcion.insertar(dato);
+        }
+    return lista_recomendadas_exepcion;
  }
 
 /*
