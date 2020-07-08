@@ -18,6 +18,7 @@ class Peliculas {
         string director;
         Lista<string>* actores;
 
+
     public:
 
         //Descripcion: Constructor sin parametros
@@ -85,6 +86,16 @@ class Peliculas {
     //PRE: puntaje mayor a 0.
     //POST:guarda en el atributo puntaje el valor recibido.
     void asignar_puntaje(int puntaje_out);
+
+    //Descripcion: devuelve el atributo actores
+    //PRE:
+    //POST: devuelve el atributo actores
+     string obtener_actores(int i);
+
+     int obtener_cantidad_actores();
+
+
+
 };
 
 
@@ -106,10 +117,6 @@ class Peliculas {
 
     //-------DUDOSO----- REPASAR-----REVISAR-------HACER
 
-    //Descripcion: devuelve el atributo actores
-    //PRE:
-    //POST: devuelve el atributo actores
-    // Lista<string> obtenerActores();
 
 
     //Descripcion: asigna la lista de actores.

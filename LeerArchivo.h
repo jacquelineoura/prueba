@@ -40,7 +40,7 @@ class LeerArchivo {
         // POST: Devuelve true si el archivo existe
         bool existencia_de_archivo( string ruta );
 
-        // PRE: La lista es válida
+        // PRE: La lista es v?lida
         // POST: Carga los datos del archivo en la lista
         void cargar_datos_lista( Lista<Dato> &lista );
 

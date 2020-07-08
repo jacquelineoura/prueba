@@ -84,14 +84,39 @@ void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 
 
 //Lo forma con vistas y no vistas
-void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado) {
+void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado){
 
+    /*
  //te dejo un ejemplo de como acceder a los datos. Despues implementa como quieras.
    if(lista_no_vistas.obtener_dato(3)->obtener_puntaje()>=7)
        cout<<"Esta pelicula va a ir a recomendadasss"<<endl;
+    */
 
+   //IDEA DE ALEX DE HACER RECOMENDADOS
+   //-------Creo 3 listas auxiliares-------
+   Lista<string> actores;
+   Lista<string> directores;
+   Lista<string> generos;
 
+   //--------Lleno las 3 listas auxiliares con la informacion de las peliculas vistas.-------
+   for (int i=0;i<=lista_vistas.obtener_tam();i++){
+       generos.insertar(lista_vistas.obtener_dato(i)->obtener_genero());
+       directores.insertar(lista_vistas.obtener_dato(i)->obtener_director());
+
+       //------Lleno la lista de actores con los actores de peliculas vistas.--------
+       for(int j=0; j<=lista_vistas.obtener_dato(i)->obtener_cantidad_actores() ;j++){
+           actores.insertar(lista_vistas.obtener_dato(i)->obtener_actores(j));
+       }
+   }
+
+    //NI IDEA SI FUNCIONA, PROBAR MOSTRAR LAS COSAS. AUXILIAR
+   cout<<"Lista actores"<<endl;
+    for (int k = 0; k < actores.obtener_tam() ; ++k) {
+        cout<<actores.obtener_dato(k)<<endl;
+    }
 }
+
+
 
 //lo forma con no vistas unicamente
 void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado) {

@@ -72,4 +72,14 @@ int Peliculas::obtener_puntaje() {
     return puntaje;
 }
 
+string Peliculas::obtener_actores(int i) {
+    return actores->obtener_dato(i);
+}
+
+int Peliculas::obtener_cantidad_actores() {
+    return actores->obtener_tam();
+}
+
+
+
 
