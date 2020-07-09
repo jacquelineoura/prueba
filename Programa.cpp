@@ -85,7 +85,7 @@ void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 
 
 //Lo forma con vistas y no vistas
-void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado){
+void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado){
 
     /*
  //te dejo un ejemplo de como acceder a los datos. Despues implementa como quieras.
@@ -118,7 +118,7 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
     }
 */
    //------------------------------------------------------------------------------------------------------
-
+/*
     bool coincide = false;
 
     for (int i = 0; i <= lista_no_vistas.obtener_tam(); i++){
@@ -131,9 +131,9 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
                         if (directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->asignar_director){
                             coincide = true;
                         }else{
-                            for (int m = 0; m <= lista_no_vistas.obtener_dato->obtener_cantidad_actores(); j++){
+                            for (int m = 0; m <= lista_no_vistas.obtener_dato()->obtener_cantidad_actores(); j++){
                                 for (int h = 0; h <= actores.obtener_tam(); h++){
-                                    if (lista_no_vistas.obtener_dato->obtener_actores(m) == actores.obtener_dato)
+                                    if (lista_no_vistas.obtener_dato()->obtener_actores(m) == actores.obtener_dato)
                                     coincide = true;
                             }
                         }
@@ -146,17 +146,55 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
 
 
     }
+*/
+  //------------------------------------------------------------------------------------------
+    bool puntaje_valido = false;
+    bool coincide_genero = false;
+    bool coincide_director = false;
+    bool coincide_actor = false;
+    for (int i = 0; i <= lista_no_vistas.obtener_tam(); i++){
+        if (lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
+            puntaje_valido = true;
+        }
+        for (int j = 0; j <= generos.obtener_tam(); j++){
+                if (generos.obtener_dato(j) == lista_no_vistas.obtener_dato(i)->obtener_genero()){
+                    coincide_genero = true;
+                }
+        }
+        for (int k = 0; k <= directores.obtener_tam(); k++){
+                if (directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->obtener_director()){
+                    coincide_director = true;
+                }
+        }
+        for (int l = 0; l <= lista_no_vistas.obtener_dato(i)->obtener_cantidad_actores(); l++){
+            for (int q = 0; q <= actores.obtener_tam(); q++){
+                if (actores.obtener_dato(q) == lista_no_vistas.obtener_dato(i)->obtener_actores(l)){
+                    coincide_actor = true;
+                }
+            }
+
+        }
+        if (puntaje_valido || (coincide_genero && (coincide_actor || coincide_director))){
+            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
+        }
+    }
 }
+
+
 
 
 
 //lo forma con no vistas unicamente
-void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado) {
+void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado){
+
     for (int i = 0; i <= lista_no_vistas.obtener_tam(); i++){
-        if (lista_no_vistas.obtener_dato->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
+        if (lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
             lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
         }
+    }
+
 }
+
 
 
 /*REVISAR ESTA MAL EL FORMATO, LAS CABECERAS*/
