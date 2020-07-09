@@ -20,18 +20,18 @@ int main (int argc, char *argv[])
     Programa programa;
     // string ruta_vistas, ruta_no_vistas;
 
-    LeerArchivo archivo_pelis_vistas(ruta_vistas)  ;
+    LeerArchivo archivo_pelis_vistas(ruta_vistas);
     Lista<Dato> lista_pelis_vistas;
-    archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas) ;
+    archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas);
 
 
-   LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas)  ;
-   Lista<Dato> lista_pelis_no_vistas ;
-   archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas) ;
+   LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas) ;
+   Lista<Dato> lista_pelis_no_vistas;
+   archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas);
 
 
 
-    if (archivo_pelis_no_vistas.estado_de_archivo() ) {
+    if (archivo_pelis_no_vistas.estado_de_archivo()){
         Programa programa;
         do {
             programa.mostrar_menu();

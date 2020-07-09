@@ -87,53 +87,31 @@ void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 //Lo forma con vistas y no vistas
 void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado){
 
-
-
-   //IDEA DE ALEX DE HACER RECOMENDADOS
-   //-------Creo 3 listas auxiliares-------
-   Lista<string> actores;
-   Lista<string> directores;
-   Lista<string> generos;
-   //Lista<string> participantes;
-
-   //--------Lleno las 3 listas auxiliares con la informacion de las peliculas vistas.-------
-   for (int i=0;i<=lista_vistas.obtener_tam();i++){
-       generos.insertar(lista_vistas.obtener_dato(i)->obtener_genero());
-       directores.insertar(lista_vistas.obtener_dato(i)->obtener_director());
-
-       //------Lleno la lista de actores con los actores de peliculas vistas.--------
-       for(int j=0; j<=lista_vistas.obtener_dato(i)->obtener_cantidad_actores() ;j++){
-           actores.insertar(lista_vistas.obtener_dato(i)->obtener_actores(j));
-       }
-   }
-
-    //NI IDEA SI FUNCIONA, PROBAR MOSTRAR LAS COSAS. AUXILIAR
-   /*cout<<"Lista actores"<<endl;
-    for (int k = 0; k < actores.obtener_tam() ; ++k) { //por qué en esta no es "<=" como en los otros ?
-        cout<<actores.obtener_dato(k)<<endl;
-    }
-*/
-
     bool puntaje_valido = false;
     bool coincide_genero = false;
     bool coincide_director = false;
     bool coincide_actor = false;
-    for (int i = 0; i <= lista_no_vistas.obtener_tam(); i++){
+    Lista<string> actores;
+    Lista<string> directores;
+    Lista<string> generos;
+    llenar_listas_auxiliares(lista_vistas,  actores, directores, generos);
+
+    for (int i = 1; i <= lista_no_vistas.obtener_tam(); i++){
         if (lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
             puntaje_valido = true;
         }
-        for (int j = 0; j <= generos.obtener_tam(); j++){
+        for (int j = 1; j <= generos.obtener_tam(); j++){
                 if (generos.obtener_dato(j) == lista_no_vistas.obtener_dato(i)->obtener_genero()){
                     coincide_genero = true;
                 }
         }
-        for (int k = 0; k <= directores.obtener_tam(); k++){
+        for (int k = 1; k <= directores.obtener_tam(); k++){
                 if (directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->obtener_director()){
                     coincide_director = true;
                 }
         }
-        for (int l = 0; l <= lista_no_vistas.obtener_dato(i)->obtener_cantidad_actores(); l++){
-            for (int q = 0; q <= actores.obtener_tam(); q++){
+        for (int l = 1; l <= lista_no_vistas.obtener_dato(i)->obtener_cantidad_actores(); l++){
+            for (int q = 1; q <= actores.obtener_tam(); q++){
                 if (actores.obtener_dato(q) == lista_no_vistas.obtener_dato(i)->obtener_actores(l)){
                     coincide_actor = true;
                 }
@@ -146,8 +124,17 @@ void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
     }
 }
 
+void Programa::llenar_listas_auxiliares(Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos){
 
+        for (int i=0;i<=lista_vistas.obtener_tam();i++){
+            generos.insertar(lista_vistas.obtener_dato(i)->obtener_genero());
+            directores.insertar(lista_vistas.obtener_dato(i)->obtener_director());
+            for(int j=0; j<=lista_vistas.obtener_dato(i)->obtener_cantidad_actores() ;j++){
+                actores.insertar(lista_vistas.obtener_dato(i)->obtener_actores(j));
+        }
+    }
 
+}
 
 
 //lo forma con no vistas unicamente
@@ -160,6 +147,15 @@ void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
     }
 
 }
+
+//------------------------------------------------------------------------------------------------------
+    //NI IDEA SI FUNCIONA, PROBAR MOSTRAR LAS COSAS. AUXILIAR
+   /*cout<<"Lista actores"<<endl;
+    for (int k = 0; k < actores.obtener_tam() ; ++k) { //por qué en esta no es "<=" como en los otros ?
+        cout<<actores.obtener_dato(k)<<endl;
+    }
+*/
+//-------------------------------------------------------------------------------------------------------
 
 
 

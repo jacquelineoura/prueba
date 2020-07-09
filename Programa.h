@@ -60,6 +60,8 @@ class Programa {
         //PRE:
         //Post:
         void llenar_recomendados( Lista<Dato> &lista_no_vistas,Lista<Dato> &lista_recomendado );
+
+        void llenar_listas_auxiliares(Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos);
     };
 
 
