@@ -133,13 +133,15 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
                         }else{
                             for (int m = 0; m <= lista_no_vistas.obtener_dato->obtener_cantidad_actores(); j++){
                                 for (int h = 0; h <= actores.obtener_tam(); h++){
-                                    if (lista_no_vistas.obtener_dato->obtener_actores(m))
-
+                                    if (lista_no_vistas.obtener_dato->obtener_actores(m) == actores.obtener_dato)
+                                    coincide = true;
                             }
                         }
 
                     }
             }
+            if (coincide)
+                lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
         }
 
 
@@ -150,7 +152,10 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
 
 //lo forma con no vistas unicamente
 void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado) {
-    //armar
+    for (int i = 0; i <= lista_no_vistas.obtener_tam(); i++){
+        if (lista_no_vistas.obtener_dato->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
+            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
+        }
 }
 
 
