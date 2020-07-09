@@ -87,11 +87,7 @@ void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 //Lo forma con vistas y no vistas
 void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado){
 
-    /*
- //te dejo un ejemplo de como acceder a los datos. Despues implementa como quieras.
-   if(lista_no_vistas.obtener_dato(3)->obtener_puntaje()>=7)
-       cout<<"Esta pelicula va a ir a recomendadasss"<<endl;
-    */
+
 
    //IDEA DE ALEX DE HACER RECOMENDADOS
    //-------Creo 3 listas auxiliares-------
@@ -117,37 +113,7 @@ void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
         cout<<actores.obtener_dato(k)<<endl;
     }
 */
-   //------------------------------------------------------------------------------------------------------
-/*
-    bool coincide = false;
 
-    for (int i = 0; i <= lista_no_vistas.obtener_tam(); i++){
-        if (lista_no_vistas.obtener_dato->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
-            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
-        }else{
-            for (int j = 0; j <= generos.obtener_tam(); j++){
-                if (generos.obtener_dato(j) == lista_no_vistas.obtener_dato(i)->obtener_genero)
-                    for (int k = 0; k <= directores.obtener_tam(); k++){
-                        if (directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->asignar_director){
-                            coincide = true;
-                        }else{
-                            for (int m = 0; m <= lista_no_vistas.obtener_dato()->obtener_cantidad_actores(); j++){
-                                for (int h = 0; h <= actores.obtener_tam(); h++){
-                                    if (lista_no_vistas.obtener_dato()->obtener_actores(m) == actores.obtener_dato)
-                                    coincide = true;
-                            }
-                        }
-
-                    }
-            }
-            if (coincide)
-                lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
-        }
-
-
-    }
-*/
-  //------------------------------------------------------------------------------------------
     bool puntaje_valido = false;
     bool coincide_genero = false;
     bool coincide_director = false;
@@ -198,64 +164,7 @@ void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
 
 
 /*REVISAR ESTA MAL EL FORMATO, LAS CABECERAS*/
-/*
-Lista<Dato> crear_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas) {
-    string* generos = new string [lista_vistas -> obtener_tam()];
-    Lista<Dato> lista_participantes;
-    Lista<Dato> lista_recomendadas;
-    lectura_de_peliculas_vistas (lista_vistas, generos, lista_participantes);
-    recomendadas (lista_participantes, lista_recomendadas, generos);
-    return lista_recomendadas;
- }
 
- void recomendadas (Lista<Dato> &lista_participantes, Lista<Dato> &lista_recomendadas, &generos){
-    bool esta = false;
-    while (primero->tiene_sig()){ //no vistas
-        if (dato->obtener_puntaje() >= 7){
-            lista_recomendadas.insertar(dato);
-        }else{
-            for (int i = 0; i < lista_vistas -> obtener_tam(); i++){
-                if (generos[i] == dato->obtener_genero())
-                    esta = true;
-            }
-            if (esta){
-                    esta = false;
-                    while (actores->tiene_sig()){ //de la no vistas.
-                        while (primero->tiene_sig()){ // de la lista participantes.
-                            if (son la misma persona)
-                                esta = true;
-                        }
-                    if (esta)
-                        lista_recomendadas.insertar(dato);
-                    }
-
-            }
-        }
-        esta = false;
-    }
- }
-
- void lectura_de_peliculas_vistas (Lista<Dato> &lista_vistas, &generos, Lista<Dato> &participantes){
-    int contador = 0;
-    do{
-        generos[contador] = dato->obtener_genero();
-        listaparticipantes -> insertar(dato -> obtener_director());
-        while (actores->tiene_sig()){
-            listaparticipantes -> insertar(actores -> obtener_dato (unsigned posicion)); //falta posicion.
-        }
-        contador ++;
-    }while (primero->tiene_sig());
- }
-
- Lista<Dato> crear_recomendados_exepcion (Lista<Dato> &lista_no_vistas) {
-    Lista<Dato> lista_recomendadas_exepcion;
-    while (primero->tiene_sig()){ //no vistas
-        if (dato->obtener_puntaje() >= 7){
-            lista_recomendadas_exepcion.insertar(dato);
-        }
-    return lista_recomendadas_exepcion;
- }
-*/
 
 /*
 //El programa principal deberia empezar llamando la clase LeerArchivo para formar las listas con lo obtenido en el archivo.
