@@ -8,6 +8,7 @@ const int SALIR = 0 ;
 const int PELIS_VISTAS = 1 ;
 const int PELIS_NO_VISTAS = 2 ;
 const int PELIS_RECOMENDADAS = 3 ;
+const int CONDICION_DE_PUNTAJE_MINIMO = 7;
 
 
 Programa::Programa() {
@@ -55,10 +56,10 @@ void Programa:: abrir_menu_interno( Lista<Peliculas*> &lista_no_vistas , Lista<P
                 esta_vistas=true; //por ahora lo dejo asi. Despues hay que recibir del main este parametro. Aca deberia recibir si se abrio o no
 
                 if (esta_vistas)
-                    formar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas);
+                    llenar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas);
                     //probando
                  else
-                     formar_recomendados(lista_no_vistas,lista_recomendadas);
+                     llenar_recomendados(lista_no_vistas,lista_recomendadas);
 
                 mostrar_lista_pelicula(lista_recomendadas);
             }
@@ -97,6 +98,7 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
    Lista<string> actores;
    Lista<string> directores;
    Lista<string> generos;
+   //Lista<string> participantes;
 
    //--------Lleno las 3 listas auxiliares con la informacion de las peliculas vistas.-------
    for (int i=0;i<=lista_vistas.obtener_tam();i++){
@@ -110,9 +112,37 @@ void Programa::formar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
    }
 
     //NI IDEA SI FUNCIONA, PROBAR MOSTRAR LAS COSAS. AUXILIAR
-   cout<<"Lista actores"<<endl;
-    for (int k = 0; k < actores.obtener_tam() ; ++k) {
+   /*cout<<"Lista actores"<<endl;
+    for (int k = 0; k < actores.obtener_tam() ; ++k) { //por qué en esta no es "<=" como en los otros ?
         cout<<actores.obtener_dato(k)<<endl;
+    }
+*/
+   //------------------------------------------------------------------------------------------------------
+
+    bool coincide = false;
+
+    for (int i = 0; i <= lista_no_vistas.obtener_tam(); i++){
+        if (lista_no_vistas.obtener_dato->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
+            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
+        }else{
+            for (int j = 0; j <= generos.obtener_tam(); j++){
+                if (generos.obtener_dato(j) == lista_no_vistas.obtener_dato(i)->obtener_genero)
+                    for (int k = 0; k <= directores.obtener_tam(); k++){
+                        if (directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->asignar_director){
+                            coincide = true;
+                        }else{
+                            for (int m = 0; m <= lista_no_vistas.obtener_dato->obtener_cantidad_actores(); j++){
+                                for (int h = 0; h <= actores.obtener_tam(); h++){
+                                    if (lista_no_vistas.obtener_dato->obtener_actores(m))
+
+                            }
+                        }
+
+                    }
+            }
+        }
+
+
     }
 }
 
