@@ -17,7 +17,19 @@ Peliculas::Peliculas(string nombre_pelicula_out, string genero_out, int puntaje_
     actores = new Lista<string>();
 }
 
+//PROBE CON ESTA OPCION PARA DESTRUIR LA LISTA DE ACTORES PERO NADA by jackie
 Peliculas::~Peliculas() {
+
+  /*while (!actores->lista_vacia())
+    {
+    actores->borrar_dato(1);
+    }
+    */
+
+    //aca deberia liberar la lista de actores
+    //delete actores
+
+    // en ninguno de los dos casos libera bien
 
     cout<<"memoria de actores: "<<actores<<endl;
 }
