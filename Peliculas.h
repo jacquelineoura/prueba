@@ -31,11 +31,16 @@ class Peliculas {
         //Descripcion: Constructor
         //PRE: -
         //Post: Construye un objeto pelicula y le asigna a los atributos los valores leidos.
-     //   Peliculas(string nombre_pelicula_out ,string genero_out , int puntaje_out ,string director_out , Lista <string>& actores_out);
         Peliculas(string nombre_pelicula_out ,string genero_out , int puntaje_out ,string director_out);
 
+        //Descripcion: muestra datos de la pelicula
+        //PRE: -
+        //Post: muestra nombre, genero, puntaje, director y lista de actores de la pelicula
         void mostrar_peliculas();
 
+        //Descripcion: muestra datos de la pelicula
+        //PRE: ingresa dato bien formado del nombre del actor
+        //Post: le agrega a la lista de actores ,el nombre del actor
         void asignar_actor(string nombre_actor);
 
 
@@ -91,6 +96,7 @@ class Peliculas {
     //PRE:
     //POST: devuelve el atributo actores
      string obtener_actores(int i);
+
 
      int obtener_cantidad_actores();
 

@@ -70,7 +70,8 @@ Nodo<Dato>::Nodo(Dato d)
 template < typename Dato >
 Nodo<Dato>::~Nodo()
 {
-// No hace nada
+   // delete dato;
+
 }
 
 // Setear el dato

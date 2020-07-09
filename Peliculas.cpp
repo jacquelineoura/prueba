@@ -17,6 +17,10 @@ Peliculas::Peliculas(string nombre_pelicula_out, string genero_out, int puntaje_
     actores = new Lista<string>();
 }
 
+Peliculas::~Peliculas() {
+
+    cout<<"memoria de actores: "<<actores<<endl;
+}
 
 void Peliculas::asignar_actor(string nombre_actor){
   actores -> insertar(nombre_actor);

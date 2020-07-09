@@ -152,7 +152,7 @@ void Lista<Dato>::borrar_dato( unsigned posicion )
     }
 
     delete paux ;
-    tam-- ;    //decrementa el tamanio de la lista
+    tam-- ;
 }
 
 
