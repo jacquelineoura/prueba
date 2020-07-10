@@ -32,7 +32,7 @@ void Programa:: elegir_opcion(){
 
 void Programa::abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Peliculas*> &lista_vistas){
 
-    switch ( opcion ) {
+    switch (opcion){
             case PELIS_VISTAS:  mostrar_lista_pelicula(lista_vistas);
                 break;
 
@@ -40,7 +40,7 @@ void Programa::abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Pel
                 break;
 
             case PELIS_RECOMENDADAS:{
-                Lista<Dato> lista_recomendadas;
+                Lista <Dato> lista_recomendadas;
                 bool esta_vistas;
 
                 esta_vistas = false; //por ahora lo dejo asi. Despues hay que recibir del main este parametro. Aca deberia recibir si se abrio o no
@@ -53,10 +53,10 @@ void Programa::abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Pel
                      llenar_recomendados(lista_no_vistas,lista_recomendadas);
 
                 mostrar_lista_pelicula(lista_recomendadas);
-            }
-            break;
+                }
+                break;
 
-            case SALIR: cout << MSJ_FIN_PROGRAMA << endl;
+             case SALIR: cout << MSJ_FIN_PROGRAMA << endl;
                         break;
     }
 }
@@ -136,6 +136,11 @@ void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
     }
 
 }
+
+
+
+
+
 
 //------------------------------------------------------------------------------------------------------
     //NI IDEA SI FUNCIONA, PROBAR MOSTRAR LAS COSAS. AUXILIAR

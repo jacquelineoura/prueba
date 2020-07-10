@@ -74,7 +74,7 @@ class Programa{
         //PRE: Debe existir una lista de peliculas vistas.
         //POST: llena las listas auxiliares utilizadas para la creacion de recomendados.
         void llenar_listas_auxiliares(Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos);
-    };
+};
 
 
 /*
