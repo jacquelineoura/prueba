@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "Programa.h"
 #include "LeerArchivo.h"
 
@@ -13,10 +12,8 @@ const string ruta_vistas = "peliculasVistasprueba.txt";
 const string ruta_no_vistas = "peliculasNoVistas.txt";
 
 
-const int SALIR = 0;
+int main (int argc, char *argv[]){
 
-int main (int argc, char *argv[])
-{
     Programa programa;
     // string ruta_vistas, ruta_no_vistas;
 
@@ -25,9 +22,9 @@ int main (int argc, char *argv[])
     archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas);
 
 
-   LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas) ;
-   Lista<Dato> lista_pelis_no_vistas;
-   archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas);
+    LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas) ;
+    Lista<Dato> lista_pelis_no_vistas;
+    archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas);
 
 
 
@@ -36,7 +33,7 @@ int main (int argc, char *argv[])
         do {
             programa.mostrar_menu();
             programa.elegir_opcion();
-            programa.abrir_menu_interno( lista_pelis_no_vistas, lista_pelis_vistas );
+            programa.abrir_menu_interno(lista_pelis_no_vistas, lista_pelis_vistas);
         } while (programa.obtener_opcion() != SALIR);
     }
 

@@ -9,9 +9,10 @@
 #include "lista.h"
 
 
-class Peliculas {
+class Peliculas{
 
     private:
+
         string nombre;
         string genero;
         int puntaje;
@@ -46,59 +47,59 @@ class Peliculas {
 
 
 
-    //--------------------SETTERS Y GETTES------------------
-    //Descripcion: devuelve el atributo nombre
-    //PRE:
-    //POST: devuelve el atributo nombre
-     string obtener_nombre();
+        //--------------------SETTERS Y GETTES------------------
+        //Descripcion: devuelve el atributo nombre
+        //PRE:
+        //POST: devuelve el atributo nombre
+        string obtener_nombre();
 
 
-    //Descripcion: asigna el nombre
-    //PRE:
-    //POST: guarda en el atributo nombrePelicula el string recibido.
-      void asignar_nombre(string nombre_out);
+        //Descripcion: asigna el nombre
+        //PRE:
+        //POST: guarda en el atributo nombrePelicula el string recibido.
+        void asignar_nombre(string nombre_out);
 
 
-    //Descripcion: devuelve el atributo genero
-    //PRE:
-    //POST: devuelve el atributo nombre
-     string obtener_genero();
+        //Descripcion: devuelve el atributo genero
+        //PRE:
+        //POST: devuelve el atributo nombre
+        string obtener_genero();
 
 
-    //Descripcion: asigna el genero
-    //PRE:
-    //POST: guarda en el atributo genero el string recibido.
-    void asignar_genero(string genero_out);
+        //Descripcion: asigna el genero
+        //PRE:
+        //POST: guarda en el atributo genero el string recibido.
+        void asignar_genero(string genero_out);
 
-    //Descripcion: devuelve el atributo director
-    //PRE:
-    //POST: devuelve el atributo director
-    string obtener_director();
-
-
-    //Descripcion: asigna el director
-    //PRE:
-    //POST: guarda en el atributo director el string recibido.
-    void asignar_director(string director_out);
+        //Descripcion: devuelve el atributo director
+        //PRE:
+        //POST: devuelve el atributo director
+        string obtener_director();
 
 
-    //Descripcion: devuelve el atributo puntaje
-    //PRE:
-    //POST: devuelve el atributo puntaje
-    int obtener_puntaje();
-
-    //Descripcion: asigna el puntaje.
-    //PRE: puntaje mayor a 0.
-    //POST:guarda en el atributo puntaje el valor recibido.
-    void asignar_puntaje(int puntaje_out);
-
-    //Descripcion: devuelve el atributo actores
-    //PRE:
-    //POST: devuelve el atributo actores
-     string obtener_actores(int i);
+        //Descripcion: asigna el director
+        //PRE:
+        //POST: guarda en el atributo director el string recibido.
+        void asignar_director(string director_out);
 
 
-     int obtener_cantidad_actores();
+        //Descripcion: devuelve el atributo puntaje
+        //PRE:
+        //POST: devuelve el atributo puntaje
+        int obtener_puntaje();
+
+        //Descripcion: asigna el puntaje.
+        //PRE: puntaje mayor a 0.
+        //POST:guarda en el atributo puntaje el valor recibido.
+        void asignar_puntaje(int puntaje_out);
+
+        //Descripcion: devuelve el atributo actores
+        //PRE:
+        //POST: devuelve el atributo actores
+        string obtener_actores(int i);
+
+
+        int obtener_cantidad_actores();
 
 
 
