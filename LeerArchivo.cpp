@@ -4,11 +4,11 @@
 #include "string.h"
 
 
-LeerArchivo:: LeerArchivo(string ruta){
+LeerArchivo::LeerArchivo(string ruta){
 
 
     if (existencia_de_archivo(ruta)){
-        archivo.open( ruta, ios::out );
+        archivo.open(ruta, ios::out);
         archivo_abierto = true;
         cout << MSJ_OK_APERTURA <<endl;
     }
@@ -19,37 +19,37 @@ LeerArchivo:: LeerArchivo(string ruta){
     }
 }
 
-LeerArchivo:: ~LeerArchivo(){
+LeerArchivo::~LeerArchivo(){
     cerrar_archivo();
 }
 
-void LeerArchivo:: cerrar_archivo(){
+void LeerArchivo::cerrar_archivo(){
     archivo.close();
     archivo_abierto = false;
 }
 
-string LeerArchivo:: leer_string(){
+string LeerArchivo::leer_string(){
     string s; //Les parece cambiar "s" por "dato a leer"?
     archivo >> s;
     return s;
 
 }
 
-int LeerArchivo:: leer_int(){
+int LeerArchivo::leer_int(){
     int valor;
     archivo >> valor;
     return valor;
 }
 
-bool LeerArchivo:: final_archivo(){
+bool LeerArchivo::final_archivo(){
     return archivo.eof();
 }
 
-bool LeerArchivo:: estado_de_archivo(){
+bool LeerArchivo::estado_de_archivo(){
     return archivo_abierto;
 }
 
-bool LeerArchivo:: existencia_de_archivo(string ruta){
+bool LeerArchivo::existencia_de_archivo(string ruta){
     ifstream archivo(ruta);
     return archivo.good();
 }
@@ -67,9 +67,9 @@ void LeerArchivo::cargar_datos_lista(Lista<Dato> &lista){
 
 
 
-        while (! final_archivo()){
+        while (!final_archivo()){
 
-            string linea_actores;
+            //string linea_actores;
             getline(archivo, nombre_pelicula);
             getline(archivo, genero);
             getline(archivo, puntaje);
@@ -80,15 +80,15 @@ void LeerArchivo::cargar_datos_lista(Lista<Dato> &lista){
             string* nombre_actor = new string;
 
 
-            Peliculas* dato = new Peliculas( nombre_pelicula, genero, atoi( puntaje.c_str()), director);
+            Peliculas* dato = new Peliculas(nombre_pelicula, genero, atoi(puntaje.c_str()), director);
 
             while (s >> *nombre_actor){
               dato -> asignar_actor(*nombre_actor);
             }
 
-            lista.insertar( dato );
+            lista.insertar(dato);
 
-            getline( archivo, espacio );
+            getline(archivo, espacio);
             }
 
         cout << MSJ_CARGA_CORRECTA << endl;

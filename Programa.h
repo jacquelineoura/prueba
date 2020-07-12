@@ -8,8 +8,8 @@
 #include "Peliculas.h"
 
 const string MSJ_OPCION = "\n\tIngrese la opcion que desea: ";
-const string MSJ_PELICULAS= "\t******** Peliculas ********  ";
-const string MSJ_FIN_PROGRAMA= "Fin del programa";
+const string MSJ_PELICULAS = "\t******** Peliculas ********  ";
+const string MSJ_FIN_PROGRAMA = "Fin del programa";
 const int SALIR = 0;
 const int PELIS_VISTAS = 1;
 const int PELIS_NO_VISTAS = 2;
@@ -34,7 +34,7 @@ class Programa{
         Programa();
 
         //destructor
-        ~Programa();
+        //~Programa();
 
         //Descripcion:
         //PRE: -
@@ -49,7 +49,7 @@ class Programa{
         //Descripcion:
         //PRE:
         //Post:
-        void abrir_menu_interno( Lista<Dato> &lista_no_vistas , Lista<Dato> &lista_vistas );
+        void abrir_menu_interno(Lista<Dato> &lista_no_vistas , Lista<Dato> &lista_vistas);
 
         //Descripcion:
         //PRE:
@@ -59,7 +59,7 @@ class Programa{
         //Descripcion: Muestra  lista completa
         //PRE: Ingresa una lista bien formada
         //Post: Muestra todos los elementos de dicha lista
-        void mostrar_lista_pelicula( Lista <Dato> &lista );
+        void mostrar_lista_pelicula(Lista <Dato> &lista);
 
         //Descripcion: Utiliza la lista de vistas y no vistas para formar recomendados.
         //PRE: Debe existir una lista de peliculas vistas y una lista de peliculas no vistas
@@ -74,6 +74,7 @@ class Programa{
         //PRE: Debe existir una lista de peliculas vistas.
         //POST: llena las listas auxiliares utilizadas para la creacion de recomendados.
         void llenar_listas_auxiliares(Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos);
+
 };
 
 

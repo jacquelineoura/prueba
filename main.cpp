@@ -14,7 +14,7 @@ const string ruta_no_vistas = "peliculasNoVistas.txt";
 
 int main (int argc, char *argv[]){
 
-    Programa programa;
+    //Programa programa;  Por que estaba esto?
     // string ruta_vistas, ruta_no_vistas;
 
     LeerArchivo archivo_pelis_vistas(ruta_vistas);
@@ -22,11 +22,14 @@ int main (int argc, char *argv[]){
     archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas);
 
 
-    LeerArchivo archivo_pelis_no_vistas( ruta_no_vistas) ;
+    LeerArchivo archivo_pelis_no_vistas(ruta_no_vistas);
     Lista<Dato> lista_pelis_no_vistas;
     archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas);
 
+    //bool esta_vistas = false;
 
+    //if (archivo_pelis_vistas.estado_de_archivo())
+      //  esta_vistas = true;
 
     if (archivo_pelis_no_vistas.estado_de_archivo()){
         Programa programa;

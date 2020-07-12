@@ -69,7 +69,7 @@ Nodo<Dato>::Nodo(Dato d){
 template <typename Dato>
 Nodo<Dato>::~Nodo(){
 
- // delete dato;      libera 8 bloques sin la parte ultima qi ncluyeron de recomendados, by jackie
+  //delete dato;              //libera 8 bloques sin la parte ultima qi ncluyeron de recomendados, by jackie
                     // no hace me estaria haciendo liberacion completa!!!
 
 }

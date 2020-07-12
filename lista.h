@@ -3,7 +3,7 @@
 # include <iostream>
 # include "nodo.h"
 
-
+const int PRIMER_NODO = 1;
 
 using namespace std;
 
@@ -62,9 +62,6 @@ class Lista{
         // POST: libera el nodo que esta en la posicion posicion
         // se toma 1 como el primero
         void borrar_dato(unsigned posicion);
-
-
-
 };
 
 
@@ -85,7 +82,7 @@ template <typename Dato>
 Lista <Dato> ::~Lista(){
 
     while (!this->lista_vacia()){
-    this->borrar_dato(1);
+    this->borrar_dato(PRIMER_NODO);
     }
 }
 
@@ -101,11 +98,11 @@ template <typename Dato>
 void Lista <Dato> :: insertar(Dato d){
 
     Nodo <Dato>* nuevo = new Nodo<Dato>(d);
-    if (!(this-> lista_vacia () )){
-    nuevo -> set_sig(primero) ;
+    if (!(this-> lista_vacia ())){
+    nuevo -> set_sig(primero);
     }
-    primero = nuevo ;
-    tam++ ;
+    primero = nuevo;
+    tam++;
 }
 
 
@@ -115,7 +112,7 @@ Dato Lista <Dato> :: obtener_dato (unsigned posicion){
 
     Nodo <Dato>* aux = primero;
     if (!lista_vacia()){
-        for (unsigned contador = 1; (contador < posicion && aux); contador ++){
+        for (unsigned contador = PRIMER_NODO; (contador < posicion && aux); contador ++){
             aux = aux -> get_sig();
     }
 
@@ -135,15 +132,17 @@ int Lista <Dato> :: obtener_tam(){
 template <typename Dato>
 void Lista <Dato> ::borrar_dato(unsigned posicion){
 
-    Nodo < Dato >* paux = primero;
-    if ( posicion == 1 || !( primero -> get_sig() ) ){
-        primero = paux -> get_sig() ;
+
+    Nodo <Dato>* paux = primero;
+    if (posicion == PRIMER_NODO || !(primero -> tiene_sig())){
+        primero = paux -> get_sig();
+        cout << "entre" << endl;
     }
     else{
-        unsigned i = 1;
+        unsigned i = PRIMER_NODO;
         Nodo <Dato>* pant = NULL;
 
-        while (i < posicion && paux->get_sig()){
+        while (i < posicion && paux-> tiene_sig()){
             pant = paux;
             paux = paux -> get_sig();
             i++ ;
