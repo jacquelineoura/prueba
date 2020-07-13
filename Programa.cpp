@@ -84,6 +84,7 @@ void Programa:: mostrar_lista_pelicula( Lista<Peliculas*> &lista ){
 void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado ){
 
     cout << endl << "Formo recomendados con vistas y no vistas" << endl ;
+
     bool puntaje_valido = false ;
     bool coincide_genero = false ;
     bool coincide_director = false ;
@@ -96,27 +97,75 @@ void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &l
     llenar_listas_auxiliares( lista_vistas,  actores, directores, generos ) ;
 
     for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
-        if ( lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO )
-            puntaje_valido = true ;
-        for ( int j = PRIMER_NODO; j <= generos.obtener_tam(); j++ ){
-                if ( generos.obtener_dato(j) == lista_no_vistas.obtener_dato(i)->obtener_genero() )
-                    coincide_genero = true ;
-        }
-        for ( int k = PRIMER_NODO; k <= directores.obtener_tam(); k++ ){
-                if ( directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->obtener_director() )
-                    coincide_director = true ;
-        }
-        for ( int l = PRIMER_NODO; l <= lista_no_vistas.obtener_dato(i)->obtener_cantidad_actores(); l++ ){
-            for ( int q = PRIMER_NODO; q <= actores.obtener_tam(); q++ ){
-                if ( actores.obtener_dato(q) == lista_no_vistas.obtener_dato(i)->obtener_actores(l) )
-                    coincide_actor = true ;
-            }
 
-        }
+        puntaje_valido = puntaje_es_valido (i , lista_no_vistas) ;
+        coincide_genero = coincidencia_genero(i, generos, lista_no_vistas) ;
+        coincide_director = coincidencia_director(i, directores, lista_no_vistas) ;
+        coincide_actor = coincidencia_actor(i, actores, lista_no_vistas) ;
+
         if ( puntaje_valido || (coincide_genero && (coincide_actor || coincide_director) ) )
             lista_recomendado.insertar(lista_no_vistas.obtener_dato(i) ) ;
     }
+/*
+    for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
 
+        if (puntaje_es_valido (i , lista_no_vistas)){
+            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i) ) ;
+
+        }else if (coincidencia_genero(i, generos, lista_no_vistas)){
+
+            if (coincidencia_director(i, directores, lista_no_vistas) ){
+                lista_recomendado.insertar(lista_no_vistas.obtener_dato(i) ) ;
+
+            }else if (coincidencia_actor(i, actores, lista_no_vistas) ){
+                lista_recomendado.insertar(lista_no_vistas.obtener_dato(i) ) ;
+
+            }
+        }
+    }
+*/
+}
+
+
+
+bool Programa::puntaje_es_valido (int posicion, Lista<Dato> &lista_no_vistas){
+
+    bool puntaje_valido = false ;
+    if ( lista_no_vistas.obtener_dato(posicion)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO )
+        puntaje_valido = true ;
+    return puntaje_valido ;
+}
+
+bool Programa::coincidencia_genero(int posicion, Lista<string> &generos, Lista<Dato> &lista_no_vistas){
+
+    bool hay_coincedencia = false ;
+    for ( int i = PRIMER_NODO; i <= generos.obtener_tam(); i++ ){
+        if ( generos.obtener_dato(i) == lista_no_vistas.obtener_dato(posicion)->obtener_genero() )
+            hay_coincedencia = true ;
+    }
+    return hay_coincedencia ;
+}
+
+bool Programa::coincidencia_director(int posicion, Lista<string> &directores, Lista<Dato> &lista_no_vistas){
+
+    bool hay_coincedencia = false ;
+    for ( int i = PRIMER_NODO; i <= directores.obtener_tam(); i++ ){
+        if ( directores.obtener_dato(i) == lista_no_vistas.obtener_dato(posicion)->obtener_director() )
+            hay_coincedencia = true ;
+    }
+    return hay_coincedencia ;
+}
+
+bool Programa::coincidencia_actor(int posicion, Lista<string> &actores, Lista<Dato> &lista_no_vistas){
+
+    bool hay_coincedencia = false ;
+    for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_dato(posicion)->obtener_cantidad_actores(); i++ ){
+        for ( int j = PRIMER_NODO ; j <= actores.obtener_tam() ; j++ ){
+            if ( actores.obtener_dato(j) == lista_no_vistas.obtener_dato(posicion)->obtener_actores(i) )
+                    hay_coincedencia = true ;
+        }
+    }
+    return hay_coincedencia ;
 }
 
 void Programa::llenar_listas_auxiliares( Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos ){

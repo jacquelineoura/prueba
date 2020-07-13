@@ -76,6 +76,21 @@ class Programa{
         //POST: llena las listas auxiliares utilizadas para la creacion de recomendados.
         void llenar_listas_auxiliares(Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos) ;
 
+        //PRE: Debe existir una lista de peliculas vistas.
+        //POST: Devuelve si coincide el genero de la pelicula no vista con alguno de alguna pelicula vista.
+        bool coincidencia_genero(int posicion, Lista<string> &generos, Lista<Dato> &lista_no_vistas) ;
+
+        //PRE: Debe existir una lista de peliculas vistas.
+        //POST: Devuelve si coincide el director de la pelicula no vista con alguno de alguna pelicula vista.
+        bool coincidencia_director(int posicion, Lista<string> &directores, Lista<Dato> &lista_no_vistas) ;
+
+        //PRE: Debe existir una lista de peliculas vistas.
+        //POST: Devuelve si coincide al menos un actor de la pelicula no vista con algun actor de alguna pelivula vista.
+        bool coincidencia_actor(int posicion, Lista<string> &actores, Lista<Dato> &lista_no_vistas) ;
+
+        //PRE: Debe existir una lista de peliculas vistas.
+        //POST: devuelve si el puntaje de la pelicula no vista supera el minimo de calidad requerida para ser recomendada
+        bool puntaje_es_valido (int posicion, Lista<Dato> &lista_no_vistas) ;
 };
 
 
