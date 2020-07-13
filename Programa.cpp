@@ -85,17 +85,17 @@ void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &l
 
     cout << endl << "Formo recomendados con vistas y no vistas" << endl ;
 
-    bool puntaje_valido = false ;
-    bool coincide_genero = false ;
-    bool coincide_director = false ;
-    bool coincide_actor = false ;
+    //bool puntaje_valido = false ;
+    //bool coincide_genero = false ;
+    //bool coincide_director = false ;
+    //bool coincide_actor = false ;
 
     Lista < string > actores ;
     Lista < string > directores ;
     Lista < string > generos ;
 
     llenar_listas_auxiliares( lista_vistas,  actores, directores, generos ) ;
-
+/*
     for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
 
         puntaje_valido = puntaje_es_valido (i , lista_no_vistas) ;
@@ -106,7 +106,7 @@ void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &l
         if ( puntaje_valido || (coincide_genero && (coincide_actor || coincide_director) ) )
             lista_recomendado.insertar(lista_no_vistas.obtener_dato(i) ) ;
     }
-/*
+*/
     for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
 
         if (puntaje_es_valido (i , lista_no_vistas)){
@@ -123,7 +123,7 @@ void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &l
             }
         }
     }
-*/
+
 }
 
 
