@@ -27,7 +27,7 @@ class Peliculas{
         //Post: Construye un objeto pelicula y le asigna a los atributos null.
         Peliculas() ;
 
-        ~Peliculas() ;
+        ~Peliculas();
 
         //Descripcion: Constructor
         //PRE: -

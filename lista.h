@@ -81,8 +81,8 @@ Lista < Dato > ::Lista(){
 template < typename Dato >
 Lista < Dato > :: ~Lista(){
 
-    while ( !this->lista_vacia() ){
-    this->borrar_dato( PRIMER_NODO ) ;
+    while ( !lista_vacia() ){
+        borrar_dato( PRIMER_NODO ) ;
     }
 }
 
@@ -128,15 +128,32 @@ int Lista < Dato > :: obtener_tam(){
     return tam ;
 }
 
+/*
+template < typename Dato >
+void Lista<Dato>::borrar_dato(unsigned int posicion) {
+    Nodo< Dato >* aux = primero;
+    if (posicion==1){
+        primero = aux->get_sig();
+    }
+    else {
+        Nodo < Dato >* anterior = obtener_dato(posicion-1);
+        aux = anterior->get_sig();
+        anterior->set_dato(aux->get_dato());
+    }
+
+    delete aux->get_dato();
+    delete aux;
+    tam--;
+}*/
+
 
 template < typename Dato >
 void Lista < Dato > ::borrar_dato( unsigned posicion ){
 
-
     Nodo < Dato >* paux = primero ;
     if ( posicion == PRIMER_NODO || !(primero -> tiene_sig() ) ){
         primero = paux -> get_sig() ;
-        cout << "entre" << endl ;
+        cout << "entre al destructor de lista" << endl ;
     }
     else{
         unsigned i = PRIMER_NODO ;
@@ -153,6 +170,8 @@ void Lista < Dato > ::borrar_dato( unsigned posicion ){
     delete paux ;
     tam-- ;
 }
+
+
 
 
 
