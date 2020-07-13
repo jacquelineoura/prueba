@@ -11,18 +11,18 @@
 using namespace std;
 
 
-class Excepcion_archivos: public exception {
+class Excepcion_archivos: public exception{
 
     public:
-        const char* excepcion_vistas() const throw();
-        const char* excepcion_no_vistas() const throw();
+        const char* excepcion_vistas() const throw() ;
+        const char* excepcion_no_vistas() const throw() ;
 
-        void asignar_cant_archivos(int cantidad_archivos_out);
+        void asignar_cant_archivos(int cantidad_archivos_out) ;
 
-        int obtener_cantidad_Archivos();
+        int obtener_cantidad_Archivos() ;
 
     private:
-        int motivo;
+        int motivo ;
 };
 
 

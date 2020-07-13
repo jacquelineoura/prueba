@@ -3,7 +3,7 @@
 
 
 Programa::Programa(bool esta_vistas) {
-    this->esta_vistas=esta_vistas;
+    this -> esta_vistas = esta_vistas ;
 }
 /*
 Programa::~Programa() {
@@ -11,69 +11,69 @@ Programa::~Programa() {
 }
 */
 int Programa:: obtener_opcion() {
-    return opcion;
+    return opcion ;
 }
 
 void Programa:: mostrar_menu() {   //aca pegue el menu que habias hecho Alex
         cout << endl << endl << endl ;
-        cout << "\t***************  MENU **************"<<endl << endl;
-        cout << "\tDecida que operacion quiere realizar: " << endl << endl;
-        cout << "\t1. Mostrar lista peliculas vistas" << endl;
-        cout << "\t2. Mostrar lista peliculas no vistas" << endl;
-        cout << "\t3. Mostrar lista peliculas recomendadas" << endl;
-        cout << "\t0. Salir del programa" << endl;
+        cout << "\t***************  MENU **************"<< endl << endl ;
+        cout << "\tDecida que operacion quiere realizar: " << endl << endl ;
+        cout << "\t1. Mostrar lista peliculas vistas" << endl ;
+        cout << "\t2. Mostrar lista peliculas no vistas" << endl ;
+        cout << "\t3. Mostrar lista peliculas recomendadas" << endl ;
+        cout << "\t0. Salir del programa" << endl ;
 }
 
 void Programa:: elegir_opcion(){
-    string opcion_menu;
-    cout << MSJ_OPCION;
-    cin >> opcion_menu;
-    cout << endl;
-    opcion = atoi (opcion_menu.c_str());    //falta validar opcion_menu  - FALTA
+    string opcion_menu ;
+    cout << MSJ_OPCION ;
+    cin >> opcion_menu ;
+    cout << endl ;
+    opcion = atoi ( opcion_menu.c_str() ) ;    //falta validar opcion_menu  - FALTA
 }
 
 
 void Programa::abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Peliculas*> &lista_vistas ){
 
-    switch (opcion){
+    switch ( opcion ){
             case PELIS_VISTAS: {
-                if (esta_vistas== true){
-                    mostrar_lista_pelicula(lista_vistas);
-                }else cout<<endl<<"No se puede mostrar vistas porque no se encontro el archivo anteriormente"<<endl;
+                if ( esta_vistas == true ){
+                    mostrar_lista_pelicula(lista_vistas) ;
+                }else cout << endl << "No se puede mostrar vistas porque no se encontro el archivo anteriormente" << endl ;
             }
-            break;
+            break ;
 
-            case PELIS_NO_VISTAS: mostrar_lista_pelicula(lista_no_vistas);
-                break;
+            case PELIS_NO_VISTAS: mostrar_lista_pelicula(lista_no_vistas) ;
+                break ;
 
             case PELIS_RECOMENDADAS:{
-                Lista <Dato> lista_recomendadas;
+                Lista < Dato > lista_recomendadas ;
 
                 if (esta_vistas)
 
-                    llenar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas);
+                    llenar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas) ;
                     //probando
                 else
-                     llenar_recomendados(lista_no_vistas,lista_recomendadas);
+                     llenar_recomendados(lista_no_vistas,lista_recomendadas) ;
 
-                mostrar_lista_pelicula(lista_recomendadas);
+                mostrar_lista_pelicula(lista_recomendadas) ;
                 }
-                break;
+                break ;
 
-             case SALIR: cout << MSJ_FIN_PROGRAMA << endl;
-                break;
+             case SALIR: cout << MSJ_FIN_PROGRAMA << endl ;
+                break ;
     }
 }
 
 
-void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
+void Programa:: mostrar_lista_pelicula( Lista<Peliculas*> &lista ){
 
-    cout << endl << endl << MSJ_PELICULAS << endl << endl;
+    cout << endl << endl << MSJ_PELICULAS << endl << endl ;
 
-    if (!lista.lista_vacia()) {
-        for (int i = 1; i <= lista.obtener_tam(); i++) {
+    if ( !lista.lista_vacia() ){
+        for ( int i = 1; i <= lista.obtener_tam(); i++ ){
             cout << i  << ". " << endl ;
-            lista.obtener_dato(i)->mostrar_peliculas();
+            lista.obtener_dato(i)->mostrar_peliculas() ;
             cout << endl << endl ;
         }
     }
@@ -81,62 +81,62 @@ void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 
 
 //Lo forma con vistas y no vistas
-void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado){
+void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado ){
 
-    cout<<endl<<"Formo recomendados con vistas y no vistas"<<endl;
-    bool puntaje_valido = false;
-    bool coincide_genero = false;
-    bool coincide_director = false;
-    bool coincide_actor = false;
+    cout << endl << "Formo recomendados con vistas y no vistas" << endl ;
+    bool puntaje_valido = false ;
+    bool coincide_genero = false ;
+    bool coincide_director = false ;
+    bool coincide_actor = false ;
 
-    Lista<string> actores;
-    Lista<string> directores;
-    Lista<string> generos;
+    Lista < string > actores ;
+    Lista < string > directores ;
+    Lista < string > generos ;
 
-    llenar_listas_auxiliares(lista_vistas,  actores, directores, generos);
+    llenar_listas_auxiliares( lista_vistas,  actores, directores, generos ) ;
 
-    for (int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++){
-        if (lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO)
-            puntaje_valido = true;
-        for (int j = PRIMER_NODO; j <= generos.obtener_tam(); j++){
-                if (generos.obtener_dato(j) == lista_no_vistas.obtener_dato(i)->obtener_genero())
-                    coincide_genero = true;
+    for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
+        if ( lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO )
+            puntaje_valido = true ;
+        for ( int j = PRIMER_NODO; j <= generos.obtener_tam(); j++ ){
+                if ( generos.obtener_dato(j) == lista_no_vistas.obtener_dato(i)->obtener_genero() )
+                    coincide_genero = true ;
         }
-        for (int k = PRIMER_NODO; k <= directores.obtener_tam(); k++){
-                if (directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->obtener_director())
-                    coincide_director = true;
+        for ( int k = PRIMER_NODO; k <= directores.obtener_tam(); k++ ){
+                if ( directores.obtener_dato(k) == lista_no_vistas.obtener_dato(i)->obtener_director() )
+                    coincide_director = true ;
         }
-        for (int l = PRIMER_NODO; l <= lista_no_vistas.obtener_dato(i)->obtener_cantidad_actores(); l++){
-            for (int q = PRIMER_NODO; q <= actores.obtener_tam(); q++){
-                if (actores.obtener_dato(q) == lista_no_vistas.obtener_dato(i)->obtener_actores(l))
-                    coincide_actor = true;
+        for ( int l = PRIMER_NODO; l <= lista_no_vistas.obtener_dato(i)->obtener_cantidad_actores(); l++ ){
+            for ( int q = PRIMER_NODO; q <= actores.obtener_tam(); q++ ){
+                if ( actores.obtener_dato(q) == lista_no_vistas.obtener_dato(i)->obtener_actores(l) )
+                    coincide_actor = true ;
             }
 
         }
-        if (puntaje_valido || (coincide_genero && (coincide_actor || coincide_director)))
-            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
+        if ( puntaje_valido || (coincide_genero && (coincide_actor || coincide_director) ) )
+            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i) ) ;
     }
 
 }
 
-void Programa::llenar_listas_auxiliares(Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos){
+void Programa::llenar_listas_auxiliares( Lista<Dato> &lista_vistas, Lista<string> &actores, Lista<string> &directores, Lista<string> &generos ){
 
-        for (int i=PRIMER_NODO;i<=lista_vistas.obtener_tam();i++){
-            generos.insertar(lista_vistas.obtener_dato(i)->obtener_genero());
-            directores.insertar(lista_vistas.obtener_dato(i)->obtener_director());
-            for(int j=PRIMER_NODO; j<=lista_vistas.obtener_dato(i)->obtener_cantidad_actores() ;j++){
-                actores.insertar(lista_vistas.obtener_dato(i)->obtener_actores(j));
+        for ( int i = PRIMER_NODO; i <= lista_vistas.obtener_tam(); i++ ){
+            generos.insertar( lista_vistas.obtener_dato(i)->obtener_genero() ) ;
+            directores.insertar( lista_vistas.obtener_dato(i)->obtener_director() ) ;
+            for( int j=PRIMER_NODO; j<=lista_vistas.obtener_dato(i)->obtener_cantidad_actores() ; j++ ){
+                actores.insertar( lista_vistas.obtener_dato(i)->obtener_actores(j) ) ;
         }
     }
 }
 
 //lo forma con no vistas unicamente
-void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado){
+void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado ){
 
-    cout<<endl<<"Formo recomendados con no vistas"<<endl;
-    for (int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++){
-        if (lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
-            lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
+    cout << endl << "Formo recomendados con no vistas" << endl ;
+    for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
+        if ( lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO ){
+            lista_recomendado.insertar( lista_no_vistas.obtener_dato(i) ) ;
         }
     }
 
