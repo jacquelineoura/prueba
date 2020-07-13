@@ -52,7 +52,7 @@ void Programa::abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Pel
                 if (esta_vistas)
 
                     llenar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas) ;
-                    //probando
+
                 else
                      llenar_recomendados(lista_no_vistas,lista_recomendadas) ;
 

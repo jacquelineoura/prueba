@@ -22,7 +22,7 @@ Peliculas::~Peliculas() {
 
   while ( !actores->lista_vacia() ){
 
-    actores->borrar_dato(1) ;
+    actores->borrar_dato(PRIMER_NODO) ;
     }
 
 
