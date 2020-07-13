@@ -51,27 +51,3 @@ int main (int argc, char *argv [] ){
 
     return 0 ;
 }
-
-/*
-int main (int argc, char *argv[]){
-
-    LeerArchivo archivo_pelis_vistas(ruta_vistas);
-    Lista<Dato> lista_pelis_vistas;
-    archivo_pelis_vistas.cargar_datos_lista(lista_pelis_vistas);
-
-    LeerArchivo archivo_pelis_no_vistas(ruta_no_vistas);
-    Lista<Dato> lista_pelis_no_vistas;
-    archivo_pelis_no_vistas.cargar_datos_lista(lista_pelis_no_vistas);
-
-    if (archivo_pelis_no_vistas.estado_de_archivo()){
-        Programa programa;
-        do {
-            programa.mostrar_menu();
-            programa.elegir_opcion();
-            programa.abrir_menu_interno(lista_pelis_no_vistas, lista_pelis_vistas);
-        } while (programa.obtener_opcion() != SALIR);
-    }
-
-
-    return 0;
-}*/

@@ -70,7 +70,7 @@ template < typename Dato >
 Nodo< Dato >::~Nodo(){
 
  // delete dato ;              //libera 8 bloques sin la parte ultima qi ncluyeron de recomendados, by jackie
-                    // no hace me estaria haciendo liberacion completa!!!
+                               // no hace me estaria haciendo liberacion completa!!!
 
 }
 
@@ -98,7 +98,6 @@ Dato Nodo < Dato > :: get_dato(){
 // Devolver el siguiente
 template < typename Dato >
 Nodo < Dato > * Nodo < Dato > :: get_sig(){
-
     return psig ;
 }
 
