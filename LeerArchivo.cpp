@@ -3,7 +3,8 @@
 #include <sstream>
 #include "string.h"
 
-
+/* SI NO ME SALE LO DE EXPECIONES RESTAURAR ESTO
+//cambiar este metodo
 LeerArchivo::LeerArchivo(string ruta){
 
 
@@ -17,6 +18,33 @@ LeerArchivo::LeerArchivo(string ruta){
         cout << MSJ_ERROR_APERTURA;
         archivo_abierto = false;
     }
+}
+
+//cambiar este metodo
+bool LeerArchivo::existencia_de_archivo(string ruta){
+    ifstream archivo(ruta);
+    return archivo.good();
+}*/
+
+
+//cambiar este metodo
+LeerArchivo::LeerArchivo(string ruta){
+
+
+    if (existencia_de_archivo(ruta)){
+        archivo.open(ruta, ios::out);
+        archivo_abierto = true;
+        cout << MSJ_OK_APERTURA <<endl;
+    }
+    else {
+        archivo_abierto = false;
+    }
+}
+
+//cambiar este metodo
+bool LeerArchivo::existencia_de_archivo(string ruta){
+    ifstream archivo(ruta);
+    return archivo.good();
 }
 
 LeerArchivo::~LeerArchivo(){
@@ -49,10 +77,7 @@ bool LeerArchivo::estado_de_archivo(){
     return archivo_abierto;
 }
 
-bool LeerArchivo::existencia_de_archivo(string ruta){
-    ifstream archivo(ruta);
-    return archivo.good();
-}
+
 
 void LeerArchivo::cargar_datos_lista(Lista<Dato> &lista){
 

@@ -1,7 +1,9 @@
 #include "Programa.h"
 
 
-Programa::Programa() {
+
+Programa::Programa(bool esta_vistas) {
+    this->esta_vistas=esta_vistas;
 }
 /*
 Programa::~Programa() {
@@ -34,17 +36,18 @@ void Programa:: elegir_opcion(){
 void Programa::abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Peliculas*> &lista_vistas ){
 
     switch (opcion){
-            case PELIS_VISTAS:  mostrar_lista_pelicula(lista_vistas);
-                break;
+            case PELIS_VISTAS: {
+                if (esta_vistas== true){
+                    mostrar_lista_pelicula(lista_vistas);
+                }else cout<<endl<<"No se puede mostrar vistas porque no se encontro el archivo anteriormente"<<endl;
+            }
+            break;
 
             case PELIS_NO_VISTAS: mostrar_lista_pelicula(lista_no_vistas);
                 break;
 
             case PELIS_RECOMENDADAS:{
                 Lista <Dato> lista_recomendadas;
-                bool esta_vistas;
-
-                esta_vistas = true; //por ahora lo dejo asi. Despues hay que recibir del main este parametro. Aca deberia recibir si se abrio o no
 
                 if (esta_vistas)
 
@@ -80,6 +83,7 @@ void Programa:: mostrar_lista_pelicula(Lista<Peliculas*> &lista){
 //Lo forma con vistas y no vistas
 void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado){
 
+    cout<<endl<<"Formo recomendados con vistas y no vistas"<<endl;
     bool puntaje_valido = false;
     bool coincide_genero = false;
     bool coincide_director = false;
@@ -129,6 +133,7 @@ void Programa::llenar_listas_auxiliares(Lista<Dato> &lista_vistas, Lista<string>
 //lo forma con no vistas unicamente
 void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado){
 
+    cout<<endl<<"Formo recomendados con no vistas"<<endl;
     for (int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++){
         if (lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO){
             lista_recomendado.insertar(lista_no_vistas.obtener_dato(i));
@@ -142,7 +147,7 @@ void Programa::llenar_recomendados(Lista<Dato> &lista_no_vistas, Lista<Dato> &li
 //------------------------------------------------------------------------------------------------------
     //NI IDEA SI FUNCIONA, PROBAR MOSTRAR LAS COSAS. AUXILIAR
    /*cout<<"Lista actores"<<endl;
-    for (int k = 0; k < actores.obtener_tam() ; ++k) { //por qué en esta no es "<=" como en los otros ?
+    for (int k = 0; k < actores.obtener_tam() ; ++k) { //por quï¿½ en esta no es "<=" como en los otros ?
         cout<<actores.obtener_dato(k)<<endl;
     }
 */

@@ -9,21 +9,3 @@ Terror
 7
 Kevin Kolsch
 Jason_Clarke Amy_Seimetz John_Lithgow
-
-Que paso hoy
-Drama Suspenso
-5
-Gaston Duprat
-actor_1 actor_2
-
-Que pasara maniana
-Comedia negra
-2
-Will Smith
-actor4 actor5 jack2 jack2
-
-la prueba de memoria
-Drama Suspenso
-0
-Elza Pato
-jack1 jack2 jack3 maestra1 maestra2

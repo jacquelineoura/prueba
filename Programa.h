@@ -24,6 +24,7 @@ class Programa{
     private:
 
         int opcion;
+        bool esta_vistas;
 
 
     public:
@@ -31,7 +32,7 @@ class Programa{
         //Descripcion: Constructor del programa sin parametros
         //PRE: -
         //Post:  -
-        Programa();
+        Programa(bool esta_vistas);
 
         //destructor
         //~Programa();
