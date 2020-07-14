@@ -1,13 +1,8 @@
-
 #ifndef PELICULAS_H
 #define PELICULAS_H
-
 #include <string>
-
 #include <iostream>
-
 #include "lista.h"
-
 
 class Peliculas{
 
@@ -36,7 +31,7 @@ class Peliculas{
 
         //Descripcion: muestra datos de la pelicula
         //PRE: -
-        //Post: muestra nombre, genero, puntaje, director y lista de actores de la pelicula
+        //Post: Muestra nombre, genero, puntaje, director y lista de actores de la pelicula
         void mostrar_peliculas() ;
 
         //Descripcion: muestra datos de la pelicula
@@ -103,37 +98,5 @@ class Peliculas{
         //POST: devuelve la cantidad de actores.
         int obtener_cantidad_actores() ;
 };
-
-
-
-
-        //REVISAAR
-        //Descripcion: Muestra una unica pelicula
-        //PRE: creada la pelicula
-        //POST: muestra por pantalla
-        //void mostrar_pelicula();
-
-
-
-
-
-
-
-
-
-    //-------DUDOSO----- REPASAR-----REVISAR-------HACER
-
-
-
-    //Descripcion: asigna la lista de actores.
-    //PRE:
-    //POST: guarda en el atributo actores la lista de actores.
-    //void asignarActores(Lista<string> actoresOut);
-
-
-
-
-
-
 
 #endif //TP4A_PELICULAS_H

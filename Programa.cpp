@@ -1,15 +1,15 @@
 #include "Programa.h"
 
 const string MSJ_ERROR_VISTAS = "No se puede mostrar vistas porque no se encontro el archivo anteriormente" ;
+const int PUNTAJE_MINIMO = 7 ;
 
 Programa::Programa(bool esta_vistas) {
     this -> esta_vistas = esta_vistas ;
 }
-/*
+
 Programa::~Programa() {
-//FALTA
 }
-*/
+
 int Programa:: obtener_opcion() {
     return opcion ;
 }
@@ -37,9 +37,10 @@ void Programa:: abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Pe
 
     switch ( opcion ){
             case PELIS_VISTAS: {
-                                if ( esta_vistas == true ){
+                                if ( esta_vistas == true )
                                     mostrar_lista_pelicula(lista_vistas) ;
-                                }else cout << endl << MSJ_ERROR_VISTAS << endl ;
+                                else
+                                    cout << endl << MSJ_ERROR_VISTAS << endl ;
                                 }
                                 break ;
 
@@ -50,12 +51,9 @@ void Programa:: abrir_menu_interno(Lista<Peliculas*> &lista_no_vistas , Lista<Pe
                                     Lista < Dato > lista_recomendadas ;
 
                                     if (esta_vistas)
-
                                         llenar_recomendados(lista_no_vistas,lista_vistas,lista_recomendadas) ;
-
                                     else
-                                         llenar_recomendados(lista_no_vistas,lista_recomendadas) ;
-
+                                        llenar_recomendados(lista_no_vistas,lista_recomendadas) ;
                                     mostrar_lista_pelicula(lista_recomendadas) ;
                                     }
                                     break ;
@@ -81,8 +79,6 @@ void Programa:: mostrar_lista_pelicula( Lista<Peliculas*> &lista ){
 
 
 void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_vistas, Lista<Dato> &lista_recomendado ){
-
-    cout << endl << "Formo recomendados con vistas y no vistas" << endl ;
 
     //bool puntaje_valido = false ;
     //bool coincide_genero = false ;
@@ -129,7 +125,7 @@ void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &l
 bool Programa::puntaje_es_valido (int posicion, Lista<Dato> &lista_no_vistas){
 
     bool puntaje_valido = false ;
-    if ( lista_no_vistas.obtener_dato(posicion)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO )
+    if ( lista_no_vistas.obtener_dato(posicion)->obtener_puntaje() >= PUNTAJE_MINIMO )
         puntaje_valido = true ;
     return puntaje_valido ;
 }
@@ -144,7 +140,7 @@ bool Programa::coincidencia_genero(int posicion, Lista<string> &generos, Lista<D
     return hay_coincedencia ;
 }
 
-bool Programa::coincidencia_director(int posicion, Lista<string> &directores, Lista<Dato> &lista_no_vistas){
+bool Programa::coincidencia_director(int posicion, Lista<string> &directores, Lista<Dato> &lista_no_vistas ){
 
     bool hay_coincedencia = false ;
     for ( int i = PRIMER_NODO; i <= directores.obtener_tam(); i++ ){
@@ -154,7 +150,7 @@ bool Programa::coincidencia_director(int posicion, Lista<string> &directores, Li
     return hay_coincedencia ;
 }
 
-bool Programa::coincidencia_actor(int posicion, Lista<string> &actores, Lista<Dato> &lista_no_vistas){
+bool Programa::coincidencia_actor(int posicion, Lista<string> &actores, Lista<Dato> &lista_no_vistas ){
 
     bool hay_coincedencia = false ;
     for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_dato(posicion)->obtener_cantidad_actores(); i++ ){
@@ -180,13 +176,11 @@ void Programa::llenar_listas_auxiliares( Lista<Dato> &lista_vistas, Lista<string
 
 void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado ){
 
-    cout << endl << "Formo recomendados con no vistas" << endl ;
     for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
-        if ( lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO ){
+        if ( lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= PUNTAJE_MINIMO ){
             lista_recomendado.insertar( lista_no_vistas.obtener_dato(i) ) ;
         }
     }
-
 }
 
 

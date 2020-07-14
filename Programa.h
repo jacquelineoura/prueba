@@ -2,8 +2,6 @@
 #define PROGRAMA_H
 #include "lista.h"
 #include "nodo.h"
-
-//LOS NOMBRES D LAS LIBRERIAS DEBERIAN ESTAR TODO EN MINUSCULA BY ANDRES
 #include "LeerArchivo.h"
 #include "Peliculas.h"
 
@@ -14,7 +12,7 @@ const int SALIR = 0 ;
 const int PELIS_VISTAS = 1 ;
 const int PELIS_NO_VISTAS = 2 ;
 const int PELIS_RECOMENDADAS = 3 ;
-const int CONDICION_DE_PUNTAJE_MINIMO = 7 ;
+
 
 typedef Peliculas* Dato ;
 
@@ -29,13 +27,13 @@ class Programa{
 
     public:
 
-        //Descripcion: Constructor del programa sin parametros
-        //PRE: -
-        //Post:  -
+        //Descripcion: Constructor del programa con parametro
+        //PRE: Ingresa un booleano que me indica si existe el archivo de peliculas vistas
+        //Post:  Asigna el valor en el atributo esta_vista
         Programa(bool esta_vistas) ;
 
-        //destructor
-        //~Programa();
+        //Descripcion: Destructor
+        ~Programa();
 
         //Descripcion:
         //PRE: -
@@ -47,14 +45,14 @@ class Programa{
         //Post: Se ingresa por teclado una opcion del menu
         void elegir_opcion() ;
 
-        //Descripcion:
-        //PRE: -
-        //Post: maneja el programa dependiendo de la opccion elegida.
+        //Descripcion: Menu interno que se encarga de ejecutar metodos segun  opcion
+        //PRE: Ingresan listas bien formadas.
+        //Post: maneja el programa dependiendo de la opcion  de menu elegida.
         void abrir_menu_interno(Lista<Dato> &lista_no_vistas , Lista<Dato> &lista_vistas) ;
 
-        //Descripcion:
+        //Descripcion: Devuelve la opcion de menu elegida
         //PRE: -
-        //Post: devuelve la opcion elejida
+        //Post: devuelve la opcion de menu elegida
         int obtener_opcion() ;
 
         //Descripcion: Muestra  lista completa
@@ -85,7 +83,7 @@ class Programa{
         bool coincidencia_director(int posicion, Lista<string> &directores, Lista<Dato> &lista_no_vistas) ;
 
         //PRE: Debe existir una lista de peliculas vistas.
-        //POST: Devuelve si coincide al menos un actor de la pelicula no vista con algun actor de alguna pelivula vista.
+        //POST: Devuelve si coincide al menos un actor de la pelicula no vista con algun actor de alguna pelicula vista.
         bool coincidencia_actor(int posicion, Lista<string> &actores, Lista<Dato> &lista_no_vistas) ;
 
         //PRE: Debe existir una lista de peliculas vistas.
@@ -93,77 +91,5 @@ class Programa{
         bool puntaje_es_valido (int posicion, Lista<Dato> &lista_no_vistas) ;
 };
 
-
-/*
-class Programa {
-
-private:
-    LeerArchivo leer_archivo;
-    Lista<Peliculas> vistas;
-    Lista<Peliculas> novistas;
-    string archivo_vistas; //este mismo va a actuar como el booleano, al pedo tener dos cosas.
-    string archivo_novistas;
-
-public:
-    //Descripcion: Constructor del programa sin parametros
-    //PRE:
-    //Post:  Inicializa el resto de los atributos
-    Programa();
-
-    //--------------------HACE FALTA?----------- Digame el resto del grupo, depende de la implementacion
-    //Descripcion: Constructor del programa con parametros
-    //PRE:
-    //Post:
-    //------------------------------------------
-
-    //Descripcion: El "Falso main" encargado de ejecutar todo el programa
-    //PRE:
-    //Post:
-   // void programa_principal();     // COPIASTE MAL DEL MAIN , PROGRAMAPRINCIPAL ES EL OBJETO DE LA CLASE PROGRAMA NO METODO
-
-    //----------Setters y Getters-------
-
-    //Descripcion: asigna archivo_vistas
-    //PRE:
-    //Post: guarda en el atributo archivo_vistas el valor recibido
-    void asignar_archivo_vistas(string archivo_vistas_out);
-
-
-    //Descripcion: devuelve el atributo archivo_vistas
-    //PRE:
-    //Post: devuelve el atributo archivo_vistas
-    string obtener_archivo_vistas();
-
-
-    //Descripcion: asigna archivo_vistas
-    //PRE:
-    //Post: guarda en el atributo archivo_vistas el valor recibido
-    void asignar_archivo_novistas(string archivo_novistas_out);
-
-
-    //Descripcion: devuelve el atributo archivo_vistas
-    //PRE:
-    //Post: devuelve el atributo archivo_vistas
-    string obtener_archivo_novistas();
-
-
-
-    //Descripcion: muestra la lista entera (la que le pidas, vista o no vista)
-    //PRE:
-    //Post:
-    void mostrar_lista_pelicula(int auxiliar);
-
-
-    //Descripcion:Utiliza la lista de vistas y no vistas para formar recomendados
-    //PRE:
-    //Post:
-    void formar_recomendados();
-
-    //Descripcion:
-    //PRE:
-    //Post:
-
-};
-*/
 
 #endif //TP4A_PROGRAMA_H

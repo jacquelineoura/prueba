@@ -5,9 +5,7 @@
 
 using namespace std ;
 
-const string peliculaVacia = "vacia" ;
 const string MSJ_ARCHIVOS_INEXISTENTES = "No hay ningun Archivo de peliculas vistas o no vistas" ;
-
 const string ruta_vistas = "peliculasVistasprueba.txt" ;
 const string ruta_no_vistas = "peliculasNoVistas.txt" ;
 
@@ -31,6 +29,7 @@ int main (int argc, char *argv [] ){
     catch( Excepcion_archivos& e ){
         cout << e.excepcion_vistas() << endl ;
     }
+
 
     try {
         if ( !archivo_pelis_no_vistas.estado_de_archivo() )

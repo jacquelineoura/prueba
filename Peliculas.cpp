@@ -18,7 +18,6 @@ Peliculas::Peliculas(string nombre_pelicula_out, string genero_out, int puntaje_
 }
 
 
-//PROBE CON ESTA OPCION PARA DESTRUIR LA LISTA DE ACTORES PERO NADA by jackie
 Peliculas::~Peliculas() {
 
   while ( !actores->lista_vacia() ){
@@ -37,65 +36,56 @@ void Peliculas::asignar_actor(string nombre_actor){
   actores -> insertar( nombre_actor ) ;
 }
 
-
 void Peliculas::mostrar_peliculas(){
 
     cout << "\tNombre: " << nombre << endl;
     cout << "\tGenero: " << genero << endl ;
     cout << "\tPuntaje: "<< puntaje << endl ;
     cout << "\tDirector: "<< director << endl ;
-
     for ( int i = 1; i <= actores->obtener_tam(); i++ ){
         cout << "\tActor "<< i << "." << actores->obtener_dato(i) ;
         cout <<endl ;
     }
 }
-void Peliculas::asignar_nombre(string nombre_out){
+void Peliculas:: asignar_nombre(string nombre_out){
 
     nombre = nombre_out ;
 }
 
-string Peliculas::obtener_nombre(){
+string Peliculas:: obtener_nombre(){
 
     return nombre ;
 }
 
-void Peliculas::asignar_director(string director_out){
+void Peliculas:: asignar_director(string director_out){
 
     director = director_out ;
 }
 
-string Peliculas::obtener_director(){
-
+string Peliculas:: obtener_director(){
     return director ;
 }
 
-void Peliculas::asignar_genero(string genero_out){
-
-    genero=genero_out ;
+void Peliculas:: asignar_genero(string genero_out){
+    genero = genero_out ;
 }
 
-string Peliculas::obtener_genero(){
-
+string Peliculas:: obtener_genero(){
     return genero ;
 }
 
-void Peliculas::asignar_puntaje(int puntaje_out){
-
+void Peliculas:: asignar_puntaje(int puntaje_out){
     puntaje = puntaje_out ;
 }
 
-int Peliculas::obtener_puntaje(){
-
+int Peliculas:: obtener_puntaje(){
     return puntaje ;
 }
 
-string Peliculas::obtener_actores(int i){
-
+string Peliculas:: obtener_actores(int i){
     return actores -> obtener_dato(i) ;
 }
 
-int Peliculas::obtener_cantidad_actores(){
-
-    return actores->obtener_tam() ;
+int Peliculas:: obtener_cantidad_actores(){
+    return actores -> obtener_tam() ;
 }
