@@ -73,7 +73,7 @@ private:
 public:
 
     // PRE: ruta es un string valido
-    // POST:
+    // POST: crea un objeto de la clase "LeerArchivo"
     LeerArchivo(string ruta) ;
 
     // PRE: El archivo se encontraba abierto
@@ -96,11 +96,7 @@ public:
     // POST: Devuelve true si el archivo existe
     bool existencia_de_archivo(string ruta) ;
 
-
-    // PRE: La lista es v?lida
-
     // PRE: La lista es valida
-
     // POST: Carga los datos del archivo en la lista
     void cargar_datos_lista(Lista<Dato> &lista) ;
 
