@@ -20,11 +20,6 @@ class Nodo{
         // y el puntero a NULL
         Nodo ( Dato d ) ;
 
-        // Destructor
-        // PRE: Nodo creado
-        // POST: No hace nada
-        ~Nodo() ;
-
         // Setea el dato (lo cambia)
         // PRE: el nodo tiene que estar creado
         // d tiene que ser un dato valido
@@ -55,23 +50,12 @@ class Nodo{
         bool tiene_sig() ;
 };
 
-
-
 // Constructor con parametro
 template < typename Dato >
 Nodo< Dato >::Nodo( Dato d ){
 
     dato = d ;
     psig = 0 ;
-}
-
-// Destructor
-template < typename Dato >
-Nodo< Dato >::~Nodo(){
-
- // delete dato ;              //libera 8 bloques sin la parte ultima qi ncluyeron de recomendados, by jackie
-                               // no hace me estaria haciendo liberacion completa!!!
-
 }
 
 // Setear el dato
@@ -98,6 +82,7 @@ Dato Nodo < Dato > :: get_dato(){
 // Devolver el siguiente
 template < typename Dato >
 Nodo < Dato > * Nodo < Dato > :: get_sig(){
+
     return psig ;
 }
 

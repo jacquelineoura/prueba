@@ -1,12 +1,11 @@
 #ifndef LISTA_H_INCLUDED
 #define LISTA_H_INCLUDED
 # include <iostream>
-# include "nodo.h"
+# include "Nodo.h"
 
-const int PRIMER_NODO = 1 ;
+const int PRIMER_NODO = 1;
 
-using namespace std ;
-
+using namespace std;
 
 template < typename Dato >
 class Lista{
@@ -14,10 +13,9 @@ class Lista{
     private:
 
         // Primer elemento de la lista
-        Nodo < Dato >* primero ;
-
+        Nodo < Dato >* primero;
         // Tamanio de la lista
-        unsigned tam ;
+        unsigned tam;
 
     public:
 
@@ -26,137 +24,122 @@ class Lista{
         // POST: construye una lista vacia
         // - primero apunta a nulo
         // - tam = 0
-        Lista() ;
+        Lista();
 
         // Destructor
         // PRE: Lista creada
         // POST: Libera todos los recursos de la lista
-        ~Lista() ;
+        ~Lista();
 
         // Agregar un elemento a la lista
         // PRE: lista creada y d valido
         // POST: agrega un dato dentro de un nodo al principio
         // - modifica el primero
         // - tam se incrementa en 1
-        void insertar ( Dato d ) ;
+        void insertar ( Dato d );
 
         // Obtener el tamanio de la lista
         // PRE: Lista creada
         // POST: devuelve el tamanio de la lista (cantidad de nodos)
-        int obtener_tam () ;
+        int obtener_tam ();
 
         // Obtener el dato que esta en la posicion posicion
         // PRE: - lista creada y no vacia
         // - 0 < pos <= tam
         // POST: devuelve el dato que esta en la posicion posicion
         // se toma 1 como el primero
-        Dato obtener_dato ( unsigned posicion ) ;
+        Dato obtener_dato ( unsigned posicion );
 
         // Lista vacia?
         // PRE: Lista creada
         // POST: True si es vacia, False sino
-        bool lista_vacia () ;
+        bool lista_vacia ();
 
         // Borrado del nodo que esta en la posicion posicion
         // PRE: - lista creada y no vacia
         // - 0 < pos <= tam
         // POST: libera el nodo que esta en la posicion posicion
         // se toma 1 como el primero
-        void borrar_dato( unsigned posicion ) ;
+        void borrar_dato( unsigned posicion );
 };
-
-
-
-
 
 // Constructor
 template < typename Dato >
 Lista < Dato > ::Lista(){
-
-    primero = 0 ;
-    tam = 0 ;
+    primero = 0;
+    tam = 0;
 }
-
 
 // Destructor
 template < typename Dato >
 Lista < Dato > :: ~Lista(){
 
-    while ( !lista_vacia() ){
-        borrar_dato( PRIMER_NODO ) ;
+    while ( !this->lista_vacia() ){
+    this->borrar_dato( PRIMER_NODO );
     }
 }
-
 
 template < typename Dato >
 bool Lista < Dato > :: lista_vacia(){
 
-    return ( tam == 0 ) ;
+    return ( tam == 0 );
 }
-
 
 template < typename Dato >
 void Lista < Dato > :: insertar( Dato d ){
 
-    Nodo < Dato >* nuevo = new Nodo < Dato > (d) ;
-    if ( !(this-> lista_vacia () ) ){
-    nuevo -> set_sig( primero ) ;
+    Nodo < Dato >* nuevo = new Nodo < Dato > (d);
+    if ( !(this->lista_vacia () ) ){
+        nuevo->set_sig( primero );
     }
-    primero = nuevo ;
-    tam++ ;
+    primero = nuevo;
+    tam++;
 }
-
 
 // Devuelve el dato que esta en la posicion pos
 template < typename Dato >
 Dato Lista < Dato > :: obtener_dato ( unsigned posicion ){
 
-    Nodo < Dato >* aux = primero ;
+    Nodo < Dato >* aux = primero;
     if ( !lista_vacia() ){
-        for ( unsigned contador = PRIMER_NODO ; ( contador < posicion && aux ); contador ++ ){
-            aux = aux -> get_sig() ;
+        for ( unsigned contador = PRIMER_NODO; contador <= posicion && aux->get_sig(); contador ++ ){
+            aux = aux->get_sig();
+        }
+    return aux->get_dato();
     }
-
-    return aux -> get_dato() ;
-    }
-    return 0 ;
+    return 0;
 }
 
 
 template < typename Dato >
 int Lista < Dato > :: obtener_tam(){
 
-    return tam ;
+    return tam;
 }
 
 
 template < typename Dato >
-void Lista < Dato > :: borrar_dato( unsigned posicion ){
+void Lista < Dato > ::borrar_dato( unsigned posicion ){
 
-    Nodo < Dato >* paux = primero ;
-    if ( posicion == PRIMER_NODO || !(primero -> tiene_sig() ) ){
-        primero = paux -> get_sig() ;
 
+    Nodo < Dato >* paux = primero;
+    if ( posicion == PRIMER_NODO || !(primero->tiene_sig() ) ){
+        primero = paux->get_sig();
     }
     else{
-        unsigned i = PRIMER_NODO ;
-        Nodo < Dato >* pant = NULL ;
+        unsigned i = PRIMER_NODO;
+        Nodo < Dato >* pant = NULL;
 
-        while (i < posicion && paux-> tiene_sig()){
-            pant = paux ;
-            paux = paux -> get_sig() ;
-            i++ ;
+        while (i < posicion && paux->tiene_sig()){
+            pant = paux;
+            paux = paux->get_sig();
+            i++;
         }
-        pant -> set_sig ( paux -> get_sig() ) ;
+        pant->set_sig ( paux->get_sig() );
     }
 
-    delete paux ;
-    tam-- ;
+    delete paux;
+    tam--;
 }
-
-
-
-
-
 
 #endif // LISTA_H_INCLUDED
