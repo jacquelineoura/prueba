@@ -48,13 +48,7 @@ public:
     // POST: Carga los datos del archivo en la lista
     void cargar_datos_lista(Lista<Dato> &lista);
 
-    // PRE: El archivo fue abierto, el dato a leer debe ser un string
-    // POST: Lee un dato del archivo como string y lo devuelve
-    string leer_string();
 
-    // PRE: El archivo esta abierto, como el archivo esta bien formado, el dato a leer es un numero
-    // POST: Lee un dato del archivo como int y lo devuelve
-    int leer_int();
 };
 
 #endif

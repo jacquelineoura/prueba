@@ -31,17 +31,7 @@ void LeerArchivo::cerrar_archivo(){
     archivo_abierto = false;
 }
 
-string LeerArchivo::leer_string() {
-    string dato_a_leer;
-    archivo >> dato_a_leer;
-    return dato_a_leer;
-}
 
-int LeerArchivo::leer_int(){
-    int valor;
-    archivo >> valor;
-    return valor;
-}
 
 bool LeerArchivo::final_archivo(){
     return archivo.eof();

@@ -152,7 +152,6 @@ void Programa::llenar_listas_auxiliares( Lista<Dato> &lista_vistas, Lista<string
 
 void Programa::llenar_recomendados( Lista<Dato> &lista_no_vistas, Lista<Dato> &lista_recomendado ){
 
-    cout << endl << "Formo recomendados con no vistas" << endl;
     for ( int i = PRIMER_NODO; i <= lista_no_vistas.obtener_tam(); i++ ){
         if ( lista_no_vistas.obtener_dato(i)->obtener_puntaje() >= CONDICION_DE_PUNTAJE_MINIMO ){
             lista_recomendado.insertar( lista_no_vistas.obtener_dato(i) );
