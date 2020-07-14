@@ -36,7 +36,7 @@ void LeerArchivo::cerrar_archivo(){
 }
 
 string LeerArchivo::leer_string(){
-    string dato_a_leer ; //Les parece cambiar "s" por "dato a leer"?
+    string dato_a_leer ;
     archivo >> dato_a_leer ;
     return dato_a_leer ;
 

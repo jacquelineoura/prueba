@@ -15,6 +15,7 @@ class Lista{
 
         // Primer elemento de la lista
         Nodo < Dato >* primero ;
+
         // Tamanio de la lista
         unsigned tam ;
 

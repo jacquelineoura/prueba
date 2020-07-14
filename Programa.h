@@ -43,18 +43,18 @@ class Programa{
         void mostrar_menu() ;
 
         //Descripcion:
-        //PRE:
+        //PRE: -
         //Post: Se ingresa por teclado una opcion del menu
         void elegir_opcion() ;
 
         //Descripcion:
-        //PRE:
-        //Post:
+        //PRE: -
+        //Post: maneja el programa dependiendo de la opccion elegida.
         void abrir_menu_interno(Lista<Dato> &lista_no_vistas , Lista<Dato> &lista_vistas) ;
 
         //Descripcion:
-        //PRE:
-        //Post:
+        //PRE: -
+        //Post: devuelve la opcion elejida
         int obtener_opcion() ;
 
         //Descripcion: Muestra  lista completa

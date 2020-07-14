@@ -30,7 +30,7 @@ class Peliculas{
         ~Peliculas();
 
         //Descripcion: Constructor
-        //PRE: -
+        //PRE: El puntaje debe ser 0 <= && >= 10
         //Post: Construye un objeto pelicula y le asigna a los atributos los valores leidos.
         Peliculas(string nombre_pelicula_out ,string genero_out , int puntaje_out ,string director_out) ;
 
@@ -48,43 +48,44 @@ class Peliculas{
 
 
         //--------------------SETTERS Y GETTES------------------
+
         //Descripcion: devuelve el atributo nombre
-        //PRE:
+        //PRE: -
         //POST: devuelve el atributo nombre
         string obtener_nombre() ;
 
 
         //Descripcion: asigna el nombre
-        //PRE:
+        //PRE: -
         //POST: guarda en el atributo nombrePelicula el string recibido.
         void asignar_nombre(string nombre_out) ;
 
 
         //Descripcion: devuelve el atributo genero
-        //PRE:
+        //PRE: -
         //POST: devuelve el atributo nombre
         string obtener_genero() ;
 
 
         //Descripcion: asigna el genero
-        //PRE:
+        //PRE: -
         //POST: guarda en el atributo genero el string recibido.
         void asignar_genero(string genero_out) ;
 
         //Descripcion: devuelve el atributo director
-        //PRE:
+        //PRE: -
         //POST: devuelve el atributo director
         string obtener_director() ;
 
 
         //Descripcion: asigna el director
-        //PRE:
+        //PRE: -
         //POST: guarda en el atributo director el string recibido.
         void asignar_director(string director_out) ;
 
 
         //Descripcion: devuelve el atributo puntaje
-        //PRE:
+        //PRE: -
         //POST: devuelve el atributo puntaje
         int obtener_puntaje() ;
 
@@ -94,11 +95,12 @@ class Peliculas{
         void asignar_puntaje(int puntaje_out) ;
 
         //Descripcion: devuelve el atributo actores
-        //PRE:
+        //PRE: i debe ser < 0.
         //POST: devuelve el atributo actores
         string obtener_actores(int i) ;
 
-
+        //PRE: -
+        //POST: devuelve la cantidad de actores.
         int obtener_cantidad_actores() ;
 };
 
