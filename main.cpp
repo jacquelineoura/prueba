@@ -1,4 +1,10 @@
 // ARREGLO DEFINITIVO 2.0
+
+/* Alex teper - 105301-*
+/* Matias caseres- 101883-*
+/* Jacqueline Oura - 87622 */
+
+
 #include <iostream>
 #include "Programa.h"
 #include "LeerArchivo.h"
